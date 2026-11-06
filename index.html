@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ad Studio Value Drops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f4f1;--card:#ffffff;--ink:#1d1f1e;--muted:#5f6461;--line:#e3e4e0;--green:#006a43;--green-soft:#e6f2ec;--amber:#8a5a00;--amber-soft:#fff4dc;--red:#9b2c2c;--red-soft:#fdeceb;--code:#f0f1ed}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121413;--card:#1b1e1c;--ink:#ecefed;--muted:#a3aaa6;--line:#2c312e;--green:#4cc38a;--green-soft:#173326;--amber:#f0c060;--amber-soft:#33290f;--red:#f08a8a;--red-soft:#3a1b1b;--code:#242826}}
+:root[data-theme="dark"]{--bg:#121413;--card:#1b1e1c;--ink:#ecefed;--muted:#a3aaa6;--line:#2c312e;--green:#4cc38a;--green-soft:#173326;--amber:#f0c060;--amber-soft:#33290f;--red:#f08a8a;--red-soft:#3a1b1b;--code:#242826}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:32px 16px 96px}
+header.top{padding:24px 0 8px}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:4px 10px;border-radius:999px;font-weight:600}
+h1{font-size:40px;line-height:1.1;margin:14px 0 8px;letter-spacing:-.02em}
+h1 em,h2 em{font-family:"Instrument Serif",serif;font-weight:400;color:var(--green)}
+h2{font-size:28px;line-height:1.2;margin:56px 0 12px;letter-spacing:-.01em;scroll-margin-top:16px}
+h3{font-size:19px;margin:28px 0 8px}
+p{margin:8px 0 12px}
+.lede{font-size:18px;color:var(--muted);max-width:760px}
+.meta{font-size:13px;color:var(--muted)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:24px 0}
+nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px}
+nav.toc a{color:var(--ink);text-decoration:none}
+nav.toc a:hover{color:var(--green)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.callout{border-left:4px solid var(--green);background:var(--green-soft);border-radius:10px;padding:14px 18px;margin:16px 0}
+.callout.warn{border-color:var(--amber);background:var(--amber-soft)}
+.callout.risk{border-color:var(--red);background:var(--red-soft)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:760px){.g2,.g3{grid-template-columns:1fr}nav.toc ol{columns:1}h1{font-size:30px}h2{font-size:23px}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.stat b{display:block;font-size:26px;letter-spacing:-.02em}
+.stat span{font-size:13px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:block;overflow-x:auto}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+code{background:var(--code);padding:1px 6px;border-radius:6px;font-size:13px;word-break:break-word}
+pre{background:var(--code);padding:14px;border-radius:10px;overflow-x:auto;font-size:13px;line-height:1.5;white-space:pre-wrap}
+ul,ol{padding-left:22px}
+li{margin:4px 0}
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.shots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.shots figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.shots img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:top;cursor:zoom-in}
+.shots figcaption{font-size:12px;padding:8px 10px;color:var(--muted)}
+.email{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:16px 0;overflow:hidden}
+.email .hd{padding:12px 18px;border-bottom:1px solid var(--line);font-size:14px;background:var(--bg)}
+.email .hd div{margin:2px 0}
+.email .hd .k{color:var(--muted);display:inline-block;width:86px}
+.email .bd{padding:18px 22px;font-size:15px;max-width:640px}
+.email .bd p{margin:0 0 12px}
+.email .bd a{color:var(--green);font-weight:600}
+.email .why{padding:10px 18px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.ba figure{margin:0}
+.ba img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
+.ba figcaption{font-size:12px;color:var(--muted);margin-top:4px}
+.pill{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--green-soft);color:var(--green);font-weight:600;margin-right:4px}
+.pill.amber{background:var(--amber-soft);color:var(--amber)}
+.pill.red{background:var(--red-soft);color:var(--red)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.flow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:14px}
+.flow i{color:var(--muted);font-style:normal}
+dialog{border:0;padding:0;background:transparent;max-width:96vw}
+dialog img{max-width:96vw;max-height:92vh;border-radius:10px;display:block}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+.small{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<span class="eyebrow">Plan v1 · 6 Nov 2026</span>
+<h1>Ad Studio <em>value drops</em>: a personal email program for stores already running ads</h1>
+<p class="lede">Every email hands the store something made for them: a better version of an ad they're running, a winning ad from their category cloned around their product, a ready prompt, a script. Each one opens the exact Ad Studio screen with that work already loaded.</p>
+<p class="meta">Built from a full walk of ads.brevo.com (38 screens below), the 6,502-store Meta sweep, PostHog, and one real worked example made inside Ad Studio.</p>
+</header>
+
+<nav class="toc">
+<ol>
+<li><a href="#summary">The short version</a></li>
+<li><a href="#product">What the product can do (and land on)</a></li>
+<li><a href="#deeplinks">Verified deep links</a></li>
+<li><a href="#who">Who we email</a></li>
+<li><a href="#drops">The 8 value drops</a></li>
+<li><a href="#playbook">The variant playbook (improving their ad)</a></li>
+<li><a href="#example">Worked example: MuscleSport</a></li>
+<li><a href="#sequences">The sequences</a></li>
+<li><a href="#subjects">Subject line framework</a></li>
+<li><a href="#copy">Copy framework: the founder note</a></li>
+<li><a href="#emails">Full email drafts</a></li>
+<li><a href="#pipeline">Pipeline: backfill + daily feed</a></li>
+<li><a href="#brevo">Brevo CRM setup</a></li>
+<li><a href="#metrics">What we measure</a></li>
+<li><a href="#asks">Product asks</a></li>
+<li><a href="#risks">Risks</a></li>
+<li><a href="#decisions">Decisions for you</a></li>
+<li><a href="#screens">All 38 screens</a></li>
+</ol>
+</nav>
+
+<h2 id="summary">The short version</h2>
+<div class="grid g3">
+<div class="stat"><b>6,591</b><span>named contacts at 6,502 stores running Meta ads now (sweep of 29 Sep)</span></div>
+<div class="stat"><b>~9 / day</b><span>new Ad Studio sign-ups (63 in the last 7 days), plus new PushOwl and Brevo ecom stores to qualify daily</span></div>
+<div class="stat"><b>$0.002</b><span>per store to check live Meta ads and pull their creatives (treg, crawl4ai route)</span></div>
+</div>
+<ol>
+<li><b>The offer is work, not a pitch.</b> Each email carries one finished thing for their store. The link is to make more of it, never to unlock it.</li>
+<li><b>Lead with their own ad.</b> Find their longest-running live ad (it's working, they keep paying for it). Make a variant in Ad Studio that fixes the one biggest gap. Show before and after. Frame it as "a test against your winner", never "your ad is bad".</li>
+<li><b>Every CTA lands pre-loaded.</b> I found Ad Studio already reads <code>guidelines</code>, <code>referenceAdUrl</code>, <code>t</code> (format), <code>ad</code>, <code>category</code> and <code>bfcm</code> from the URL. I tested them: the prompt and their own ad arrive filled in. One gap: static ads need a product id, so the prefill is lost for people with no product saved yet (product ask #1).</li>
+<li><b>Five emails over two weeks, then stop.</b> Their ad remade, 3 category winners cloned, a UGC script for one product, a BFCM 4-ad set (time-boxed to now), a category read. Anyone who signs up leaves the sales track for an activation track.</li>
+<li><b>Written like a founder's note.</b> Plain text look, one image max, under 120 words, first line proves we looked, contractions, no marketing words, one link, a P.S. that invites a reply. A lint gate blocks anything that breaks the rules.</li>
+<li><b>Runs in the cloud.</b> Backfill the 6,591, then a daily Worker: intake new sign-ups and installs, check for live ads, build the dossier, make the variant, write, load to Brevo. A person reviews the first 50 before anything sends.</li>
+</ol>
+<div class="callout warn"><b>Timing:</b> Black Friday is 27 Nov, three weeks out. If the pilot starts by 12 Nov, the BFCM email lands while it's still useful. After 28 Nov that email swaps for a format-gap email.</div>
+
+<h2 id="product">What the product can do, and what each feature is worth to a store</h2>
+<p>Walked every screen on 6 Nov. Nav: Home, Ad Radar, Your library, New ad (Static or Video). Account: products, brand kits, avatars, voice cloning, pricing.</p>
+<table>
+<tr><th>Feature (route)</th><th>What it does (verified)</th><th>Value we can hand a store</th></tr>
+<tr><td><b>Static ad</b><br><code>/agents/ads-maker</code></td><td>Pick up to 4 products. Single ad, carousel (3 to 10 cards) or store-wide promotion. Angle: showcase, lifestyle, testimonial, sale, comparison, how-to. Audience, style, 4:5 / 1:1 / 9:16, GPT Image 2.5, brand kit, "specific guidelines" box, reference ad (from Ad Radar or upload). 5 credits.</td><td>A variant of their running ad. A prompt for one product. A comparison or testimonial angle they haven't tried.</td></tr>
+<tr><td><b>Static from a reference</b></td><td>Turns on when a reference ad is passed. "Match an ad you like, with your product in it." Keeps the look, swaps the product.</td><td>"Your ad, remade" and "this winner, with your product".</td></tr>
+<tr><td><b>Ad Radar</b><br><code>/ad-radar</code></td><td>Ads from ecommerce brands tracked from launch day. Sort: fresh, recommended, newest, longest running. Signals: long-running, gaining visibility, reused ideas. 20 categories. Filters by hook (16 types), angle (10), structure (9), proof (8), offer (7), visual style (8), animation (7), brand. Pattern collections with counts (e.g. "Pattern interrupt with a clear claim, 382 active ads"). Each ad has "Make this ad yours" notes, public activity (days live), "why it feels credible" and <b>Clone for my product</b>.</td><td>Category winners (template drops). The taxonomy is also our teardown rubric.</td></tr>
+<tr><td><b>Video ads</b><br><code>/agents/video-ads</code></td><td>Video ad agent (writes, casts, edits) plus proven formats: one-shot testimonial, music montage, fit check, multi-shot story, animate static ads, hooks, Vox-style, comic, animated story, picture-in-picture presenter. 15/30/45/60 s, 480p or 720p, 12 languages, guidelines box, "ask me at every step". About 140 credits for 15 s.</td><td>A UGC script for their product. Their static, animated. Their ad in French, German, Spanish.</td></tr>
+<tr><td><b>BFCM mode</b></td><td>Stages: teaser, launch, reminder, last chance. Promotion details, discount code, end date. Static or video. Whole state lives in the <code>bfcm</code> URL param.</td><td>"Your 4 Black Friday ads, drafted" with their offer prefilled.</td></tr>
+<tr><td><b>Library</b><br><code>/library</code></td><td>Every ad saved with Meta copy (main text, short and long headlines). Clone, AI edit, resize, upscale, make video, copy link, folders.</td><td>Proof that output is campaign-ready, not just an image.</td></tr>
+<tr><td><b>Products, brand kits, avatars</b></td><td>Import a product from any store URL (title, description, price, images). Brand kit from a domain (logo, colours, fonts). Preset AI presenters, custom avatars, voice cloning.</td><td>"Paste your link once" onboarding. Their own presenter.</td></tr>
+<tr><td><b>Templates</b><br><code>/templates</code></td><td>Clone a look: video ads, static ads, image gen, product drop, dolly shot, stop motion.</td><td>Secondary template drops for non-advertisers later.</td></tr>
+<tr><td><b>Pricing</b></td><td>Studio Mini $19 (1,500 credits, ~20 videos or ~300 statics), Studio $49 (3,000), Studio Max (6,000). Creatives as a Service (done for you). No card to start.</td><td>Honest cost lines in emails ("takes a minute, 5 credits").</td></tr>
+</table>
+
+<h2 id="deeplinks">Verified deep links</h2>
+<p>I read the URL parameters the app code accepts, then tested the important ones in the live app.</p>
+<table>
+<tr><th>Lands on</th><th>Link pattern</th><th>Tested result</th></tr>
+<tr><td>Static ad, prompt + their ad loaded</td><td><code>/agents/ads-maker?pId=…&amp;step=settings&amp;guidelines=…&amp;referenceAdUrl=…</code></td><td><span class="pill">works</span> Switches to "Static ad from a reference", guidelines box filled, their ad shown as the reference. <span class="pill amber">needs pId</span> without a product id it falls back to the product picker and drops the prefill.</td></tr>
+<tr><td>Video format with a script</td><td><code>/agents/video-ads?t=one_shot_ugc&amp;guidelines=…</code></td><td><span class="pill">works</span> Opens the testimonial format. User picks or pastes a product. Guidelines arrive prefilled at step 2. No pId needed.</td></tr>
+<tr><td>Other video formats</td><td><code>t=</code> <code>video_agent</code>, <code>one_shot_ugc</code>, <code>multi_shot_ugc</code>, <code>animate_static_ads</code>, <code>hook</code>, <code>vox_ad</code>, <code>comic_ad</code>, <code>animation_ad</code>, <code>green_screen_overlay</code></td><td><span class="pill">ids read from code</span> also accepts <code>lang</code>, <code>style</code>, <code>angle</code>, <code>audience</code>, <code>voice</code>.</td></tr>
+<tr><td>A category in Ad Radar</td><td><code>/ad-radar?category=Supplements+%26+Nutrition</code></td><td><span class="pill">works</span></td></tr>
+<tr><td>One winning ad, ready to clone</td><td><code>/ad-radar?ad=&lt;uuid&gt;</code></td><td><span class="pill">works</span> Opens "Make this ad yours" with Clone for my product.</td></tr>
+<tr><td>BFCM set with offer filled</td><td><code>/agents/ads-maker?bfcm={"fields":{"bfcmStage":"launch",…},"guidelines":"…"}</code></td><td><span class="pill">state seen in URL</span> prefill of promotion details still to test.</td></tr>
+<tr><td>Signed-out visitor</td><td>any of the above</td><td><span class="pill">guest flow</span> shows "Add your product" (paste URL) with a Sign up button. Whether params survive sign-up is not verified (no test account created).</td></tr>
+<tr><td>Attribution</td><td><code>email_campaign_id=</code></td><td><span class="pill amber">param exists in code</span> confirm it reaches PostHog.</td></tr>
+</table>
+
+<h2 id="who">Who we email</h2>
+<h3>Pool A: the existing database (backfill)</h3>
+<div class="grid g3">
+<div class="stat"><b>6,502</b><span>stores with live Meta ads: Brevo 3,787, PushOwl 2,670, both 45</span></div>
+<div class="stat"><b>14</b><span>median live ads per store (p90: 116). 769 stores run 100+</span></div>
+<div class="stat"><b>2,473 / 1,489 / 2,383</b><span>main format: video / static / catalog or dynamic</span></div>
+</div>
+<p>Contacts: <code>lead-expansion/out/instantly_ready_all.csv</code>, one named person per store (PushOwl 5,055, Brevo 1,536). Top categories: apparel 1,041, beauty 563, food 533, home 361, health 352. Country is known for about 60%: France 732, Italy 628, Germany 405, Spain 215, US 197, UK 192.</p>
+<div class="callout warn">The sweep is from 29 Sep. Re-check live ads within 24 hours of each send. It costs $0.002 a store and avoids "your ad" emails about an ad that has stopped.</div>
+
+<h3>Pool B: the daily feed (new sign-ups and installs)</h3>
+<table>
+<tr><th>Source</th><th>How we read it</th><th>Volume</th><th>Status</th></tr>
+<tr><td>Ad Studio sign-ups</td><td>PostHog <code>Enhanced Sign Up</code> (email, plan, first generation). Store domain from <code>home_store_import_started.domain</code> or the host of <code>Scraper Fetch Succeeded.productURL</code>. The old <code>onboarding_url_submitted</code> event is gone, so the July D1 pipeline would read nothing today.</td><td>63 in 7 days</td><td><span class="pill">key works</span></td></tr>
+<tr><td>PushOwl installs</td><td>Intercom contacts created in the last 24 h with shop domain and orders/30d. Orders predict Meta ads: 1,000+ orders 86%, 300 to 999 73%, 100 to 299 59%, 0 orders 8%.</td><td>to measure</td><td><span class="pill">key present</span></td></tr>
+<tr><td>Brevo ecom sign-ups</td><td>New orgs with an ecommerce plugin, from Omni (<code>clients_accounts</code>) or nao.</td><td>to measure</td><td><span class="pill red">blocked</span> Omni needs re-auth, nao failed to connect</td></tr>
+</table>
+<h3>Qualify, tier, exclude</h3>
+<ul>
+<li><b>Qualified</b> = at least 1 live Meta ad whose landing URL is on their domain. (Never trust storefront social links: themes ship Shopify's own Facebook link, which once credited 10 stores with 5,929 ads.)</li>
+<li><b>Tier A</b>: 20+ live ads, or a live ad older than 90 days. Gets a generated variant of their own ad.</li>
+<li><b>Tier B</b>: 6 to 19 live ads. Gets a generated variant if the hero ad is static, else a prompt.</li>
+<li><b>Tier C</b>: 1 to 5 live ads. Prompt-only and template drops (no generation cost).</li>
+<li><b>Out</b>: already a paying Ad Studio user, role inboxes (info@, support@), unsubscribed or blacklisted, marketplaces, agencies (476, they get their own track later), stores whose only ads are catalog/DPA (no creative to improve, they get the template-drop track).</li>
+</ul>
+
+<h2 id="drops">The 8 value drops</h2>
+<p>Each email carries exactly one. Ranked by how much it proves we did real work for them.</p>
+<table>
+<tr><th>#</th><th>Value drop</th><th>What's in the email</th><th>Lands on</th><th>Data needed</th></tr>
+<tr><td>1</td><td><b>Your ad, remade</b></td><td>Before/after of their longest-running live ad. The 3 changes. Made in Ad Studio.</td><td>Static from reference, prompt + their ad loaded</td><td>Hero ad image, teardown, generated variant</td></tr>
+<tr><td>2</td><td><b>Category winners, cloned</b></td><td>3 ads in their category live 90+ days, one line on why each works, "clone it around your product".</td><td><code>/ad-radar?ad=</code> x3</td><td>Ad Radar top long-runners by category</td></tr>
+<tr><td>3</td><td><b>A UGC script for one product</b></td><td>A 15 s testimonial script built from their own best line. Paste or one click.</td><td><code>t=one_shot_ugc&amp;guidelines=</code></td><td>Their ad copy, product facts</td></tr>
+<tr><td>4</td><td><b>BFCM 4-ad set</b> (until 28 Nov)</td><td>Teaser, launch, reminder, last chance from one offer.</td><td>BFCM mode with offer prefilled</td><td>Last year's offer if found on site</td></tr>
+<tr><td>5</td><td><b>Category read</b></td><td>What long-running ads in their category do (hook, proof, format) and the one gap in theirs.</td><td><code>/ad-radar?category=</code></td><td>Ad Radar pattern counts</td></tr>
+<tr><td>6</td><td><b>Format gap</b></td><td>"You only run statics": their best static as an 11 s video. Or "no 9:16": their ad resized for Reels.</td><td><code>t=animate_static_ads</code></td><td>Formats from the sweep</td></tr>
+<tr><td>7</td><td><b>Hook pack</b></td><td>5 opening lines for their product's video ads, each tied to a hook type.</td><td><code>t=hook&amp;guidelines=</code></td><td>Product, reviews</td></tr>
+<tr><td>8</td><td><b>Same ad, new market</b></td><td>For EU stores: their ad as a video in French, German, Spanish or Italian.</td><td><code>lang=</code> on video</td><td>Country, language</td></tr>
+</table>
+
+<h2 id="playbook">The variant playbook: how we improve a running ad</h2>
+<p>The principle a performance marketer would use: <b>don't replace a winner, test a variant against it.</b> Their longest-running live ad is the one they keep paying for, so it's doing something right. We keep that and fix one thing.</p>
+<h3>Step 1: pick the hero ad</h3>
+<p>Longest-running live ad that lands on their domain. Prefer a static for email 1 (cheap to remake, easy to show). If several versions of the same creative exist, that's extra proof it's a winner, and worth saying.</p>
+<h3>Step 2: score it on 6 points (Ad Radar's own taxonomy)</h3>
+<table>
+<tr><th>Point</th><th>Question</th><th>Common gap</th></tr>
+<tr><td>Thumb-stop</td><td>Does the first frame stop a scroll in half a second?</td><td>Nice product shot, nothing unexpected</td></tr>
+<tr><td>Hook</td><td>Is there a line on the creative? Which type (problem, claim, question, offer first, social proof…)?</td><td>No words on the image. The message lives in the caption most people never read.</td></tr>
+<tr><td>Angle</td><td>Why buy: problem and solution, routine, comparison, offer, creator story?</td><td>Product-first with no reason</td></tr>
+<tr><td>Proof</td><td>Number, ingredient, demo, before and after, review, press?</td><td>None visible</td></tr>
+<tr><td>Offer and CTA</td><td>Is there a reason to act now?</td><td>Generic "Shop now"</td></tr>
+<tr><td>Format fit</td><td>4:5 or 9:16, safe zones, legible at feed size, captions for sound off?</td><td>1:1 only, small text</td></tr>
+</table>
+<h3>Step 3: pick ONE fix and one keep</h3>
+<p>The email names one keep (what's working) and up to 3 changes that all serve one fix. Category benchmark from Ad Radar decides the fix when it's a tie (for example, if long-running ads in their category mostly open with a problem, that's the fix).</p>
+<h3>Step 4: borrow from themselves first</h3>
+<p>The best line for the new variant is often already in their newer ads or captions. Using their words keeps every claim true and makes it feel like it was made by someone who studied them.</p>
+<h3>Step 5: write the prompt, make it, QA it</h3>
+<p>Prompt shape: keep list (product, props, mood), one headline, one subline, one visual change, one CTA, "no other text", "keep the label readable". Generate in Ad Studio with their ad as reference. QA: label fidelity, spelling, no claim that isn't theirs, legible at 320 px wide. Never name a flavor or variant in the prompt: the imported product sets the packaging.</p>
+<div class="callout">Never say an ad "converts" or "performs". Ad Radar data is public activity. Say "has run for 2 years", "you've relaunched it twice".</div>
+
+<h2 id="example">Worked example: MuscleSport (real data, made in Ad Studio)</h2>
+<p>musclesport.com, US supplements, 55 live Meta ads. Pulled 30 live ads on 6 Nov through treg ($0.00165).</p>
+<ul>
+<li><b>Hero ad</b>: a collagen static, live since <b>9 Oct 2024</b> (over 2 years). They relaunched the same creative on 22 Apr 2026, then made a video (21 Jul) and a carousel (25 Aug) of it. Strong signal it's a winner.</li>
+<li><b>Keep</b>: the photography. Jar, red shaker, dumbbell, dark gym mood. The flavor name reads.</li>
+<li><b>Gap</b>: zero words on the image. The "use it as a coffee creamer" angle and "hair, skin and nail support" only live in the caption and headline field.</li>
+<li><b>Borrowed from themselves</b>: their product page says "designed to stir smoothly right into your coffee" and "10g of hydrolyzed grass-fed bovine collagen". Their newer video ads have sharper copy ("Those are protein flavors. Not candy.").</li>
+<li><b>Fix</b>: put the routine angle on the image. One headline, a coffee mug in the shot, one button with the flavor.</li>
+</ul>
+<div class="ba">
+<figure><img src="example/hero_collagen_static.jpg" alt="MuscleSport collagen ad, live since Oct 2024"><figcaption>Before: their live ad, since 9 Oct 2024</figcaption></figure>
+<figure><img src="example/variant.jpg" alt="Ad Studio variant"><figcaption>After: made in Ad Studio from one deep link, about 2 minutes, 6 credits (4:5 + 2:3)</figcaption></figure>
+</div>
+<div class="callout"><b>What Ad Studio did on its own:</b> it used the jar from their <i>current</i> product page (Caf&eacute; Series, not the 2024 Revolution jar), and it changed my button text from "Try Almond Mocha Bliss" to "Try Italian Sweet Cream" to match that jar. Lesson for the pipeline: never name a flavor or variant in the prompt. Import the exact product the ad links to and let the product set the packaging. Upside: the email can honestly say "with your current packaging".</div>
+<p class="small">The prompt that went in (via the <code>guidelines</code> param, their ad via <code>referenceAdUrl</code>):</p>
+<pre>This is a variant of my best ad (reference). Keep the same jar, the red shaker, the dumbbell and the dark gym mood. Add one big headline on the image: "Your coffee creamer is now collagen." Small subline under it: "10g grass-fed collagen. Stir it into your coffee." Add a mug of black coffee next to the jar with a scoop of powder going in. One rounded button at the bottom: "Try Almond Mocha Bliss". No other text. Keep the label readable.</pre>
+
+<h2 id="sequences">The sequences</h2>
+<h3>Track A: stores running ads, not on Ad Studio (Pool A)</h3>
+<div class="flow"><span><b>D0</b> Your ad, remade</span><i>→</i><span><b>D3</b> 3 winners, cloned</span><i>→</i><span><b>D6</b> UGC script</span><i>→</i><span><b>D9</b> BFCM set <span class="small">(or format gap after 28 Nov)</span></span><i>→</i><span><b>D13</b> Category read + close</span></div>
+<ul>
+<li><b>Exit</b> on sign-up (PostHog, synced daily to a Brevo attribute), on reply (a human answers), on unsubscribe.</li>
+<li><b>Click, no sign-up</b>: next email moves up by one day.</li>
+<li><b>No opens after D6</b>: skip D9, send D13 only, with a new subject. Protects deliverability.</li>
+<li><b>Reply hook</b>: every email's P.S. offers "send me another product link and I'll do the same". Replies get a real variant made by a person or the pipeline within a day.</li>
+</ul>
+<h3>Track B: new sign-ups who run ads (Pool B, daily)</h3>
+<div class="flow"><span><b>D1</b> Your live ad, remade</span><i>→</i><span><b>D3</b> 3 prompts for your bestseller</span><i>→</i><span><b>D5</b> Winners in your category</span><i>→</i><span><b>D8</b> Format gap</span><i>→</i><span><b>D12</b> Credits math</span></div>
+<ul>
+<li>Same voice, but links go straight into their account. They already have credits, so each email ends with the exact cost ("5 credits").</li>
+<li>D12 only if they've generated at least once: "you've made X ads; Studio is $49 for about 40 videos or 600 statics".</li>
+<li>Exit on paid plan.</li>
+</ul>
+<h3>Track C (later): agencies</h3>
+<p>476 agency-managed contacts. One email: "we remade one ad for each of your clients" with 3 before/afters. Separate test once A and B have numbers.</p>
+
+<h2 id="subjects">Subject line framework: "their thing + what's inside"</h2>
+<ol>
+<li><b>Name their thing</b>: product, ad, store or category. Never our product name.</li>
+<li><b>Say what's inside</b>, not why to open. "a variant of your collagen ad", not "boost your ROAS".</li>
+<li><b>3 to 7 words, lowercase</b>, like a colleague's email. No emoji, no exclamation mark.</li>
+<li><b>One real number</b> when we have one: days live, ads count, seconds.</li>
+<li><b>No sales words</b>: free, offer, % off, limited, boost, grow, ROAS, AI.</li>
+<li><b>Preheader finishes the thought</b> with the second most interesting fact.</li>
+<li><b>Test 2 per email</b>. Winner by click rate (opens are unreliable with Apple Mail).</li>
+</ol>
+<table>
+<tr><th>Email</th><th>Subject A</th><th>Subject B</th><th>Preheader</th></tr>
+<tr><td>Your ad, remade</td><td>your collagen ad, 2 years in</td><td>a variant of your collagen ad</td><td>same jar, one new line on the image</td></tr>
+<tr><td>Winners, cloned</td><td>3 supplement ads running 6+ months</td><td>the longest-running ads in supplements</td><td>each one rebuilt around your collagen</td></tr>
+<tr><td>UGC script</td><td>a ugc script for cream'd rice</td><td>your 90 seconds line, on camera</td><td>15 seconds, paste it in and pick a presenter</td></tr>
+<tr><td>BFCM</td><td>your 4 black friday ads, drafted</td><td>teaser, launch, reminder, last call</td><td>one offer, four ads, ready to tweak</td></tr>
+<tr><td>Category read</td><td>what's running in supplements this month</td><td>one gap in your supplement ads</td><td>last note from me for now</td></tr>
+</table>
+
+<h2 id="copy">Copy framework: the founder note</h2>
+<p>The test: <b>could a growth lead have typed this to one customer after looking at their store for ten minutes?</b> If a sentence would fit any store, cut it.</p>
+<div class="grid g2">
+<div class="card"><b>1. Prove you looked, in line one.</b><br>One concrete detail: the date their ad went live, a line of their copy, their product's name.</div>
+<div class="card"><b>2. Give before you ask.</b><br>The asset is inside the email. The link is to make more of it.</div>
+<div class="card"><b>3. One email, one idea, one link.</b><br>Plus an easy reply.</div>
+<div class="card"><b>4. Respect what's working.</b><br>"It's clearly working" before "here's a variant to test". Never criticise their ad.</div>
+<div class="card"><b>5. Talk like a text.</b><br>Contractions always. Sentences average under 14 words. Two sentences per paragraph, max.</div>
+<div class="card"><b>6. Only true claims.</b><br>Their facts, or our verified product facts. Never invent results, reviews or "converting".</div>
+<div class="card"><b>7. Hard caps.</b><br>Email 1: 150 words. Others: 120. Last: 90. P.S. under 25.</div>
+<div class="card"><b>8. Plain look.</b><br>No logo header, no banner, no footer art. One inline image max. Link as text or one small button.</div>
+<div class="card"><b>9. Say what it costs.</b><br>"Takes a minute, 5 credits." Honesty about effort reads as confidence.</div>
+<div class="card"><b>10. Product named twice, max.</b><br>Describe what it does, not what it is.</div>
+<div class="card"><b>11. Banned.</b><br>Em dashes, exclamation marks, emoji, "I hope this finds you well", "just checking in", revolutionary, game-changer, leverage, unlock, supercharge, seamless, skyrocket, AI-powered.</div>
+<div class="card"><b>12. One person signs.</b><br>First name, one-line role. P.S. carries the reply hook.</div>
+</div>
+<p><b>How personal at scale:</b> the template holds structure. The model writes only the slots (observation line, keep, 3 changes, script, why-each-winner-works) from the store dossier. A lint gate checks contractions, sentence length, word caps, banned words, dashes, link count, and that at least 2 store-specific facts appear. Anything that fails goes to a human queue, it doesn't send.</p>
+
+<h2 id="emails">Full email drafts (MuscleSport)</h2>
+<p class="small">Merge slots shown as real values. Sender shown as Farooq pending decision 1.</p>
+
+<div class="email">
+<div class="hd"><div><span class="k">From</span>Farooq at Ad Studio</div><div><span class="k">Subject</span>your collagen ad, 2 years in</div><div><span class="k">Preheader</span>same jar, one new line on the image</div></div>
+<div class="bd">
+<p>hey {first name},</p>
+<p>Your collagen ad, the jar next to the red shaker, has been live since October 2024. You relaunched it this spring and made video and carousel versions. That's a winner.</p>
+<p>One thing stood out. The coffee-creamer idea only lives in the caption. On the image there are no words, so a scroller just sees a nice jar.</p>
+<p>So I made a variant that puts it on the image:</p>
+<p><i>[before / after image]</i></p>
+<p>What changed: a headline ("Your coffee creamer is now collagen."), a mug in the shot so the use is obvious, and one button with the flavor. Your shaker and gym mood stay, with your current jar.</p>
+<p>I'd test it against the original, not replace it.</p>
+<p><a href="#">Make more versions of it</a> (opens with your ad and my prompt loaded, about 5 credits each)</p>
+<p>Farooq<br>Growth, Ad Studio by Brevo</p>
+<p>P.S. Send me another product link and I'll do the same for it.</p>
+</div>
+<div class="why">148 words. Proof we looked: launch date, the relaunch, the red shaker. Keep, then one fix. Link lands on static-from-reference with guidelines + referenceAdUrl.</div>
+</div>
+
+<div class="email">
+<div class="hd"><div><span class="k">Subject</span>3 supplement ads running 6+ months</div><div><span class="k">Preheader</span>each one rebuilt around your collagen</div></div>
+<div class="bd">
+<p>hey {first name},</p>
+<p>I pulled the supplement ads that have been live the longest right now. Brands don't keep paying for ads that don't sell, so it's a decent signal.</p>
+<p>1. <b>{brand 1}</b>: opens with a problem, not the product. Live {days} days.<br>2. <b>{brand 2}</b>: lists every ingredient as the proof. Live {days} days.<br>3. <b>{brand 3}</b>: a creator talking to camera, one take. Live {days} days.</p>
+<p>Each link opens the ad with a "clone for my product" button. Pick your collagen and it rebuilds the ad around it. About a minute, 5 credits.</p>
+<p><a href="#">See the 3 ads</a></p>
+<p>Farooq</p>
+<p>P.S. I'd try #1 first. None of your live ads open with a problem yet.</p>
+</div>
+<div class="why">Slots come from Ad Radar (longest running, their category). Example reasons mirror the patterns seen in Ad Radar today.</div>
+</div>
+
+<div class="email">
+<div class="hd"><div><span class="k">Subject</span>a ugc script for cream'd rice</div><div><span class="k">Preheader</span>15 seconds, paste it in and pick a presenter</div></div>
+<div class="bd">
+<p>hey {first name},</p>
+<p>Your newer Cream'd Rice ad has a great line: "a warm breakfast that takes 90 seconds and doesn't taste like health food." That line wants a person saying it.</p>
+<p>Here's a 15 second script:</p>
+<p><i>"Okay, I've stopped making oatmeal. This is Cream'd Rice. One cup of water, 90 seconds in the microwave, done before my coffee is. 25 grams of carbs from real rice, and it tastes like dessert. 14 flavors, sweet and savory."</i></p>
+<p><a href="#">Make this video</a> (opens the testimonial format with the script loaded. You pick the presenter.)</p>
+<p>Farooq</p>
+<p>P.S. Want it in a second language too? Reply with which one.</p>
+</div>
+<div class="why">Every claim is theirs (90 seconds, 25g carbs, 14 flavors). Link: <code>/agents/video-ads?t=one_shot_ugc&amp;guidelines=…</code> (tested).</div>
+</div>
+
+<div class="email">
+<div class="hd"><div><span class="k">Subject</span>your 4 black friday ads, drafted</div><div><span class="k">Preheader</span>one offer, four ads, ready to tweak</div></div>
+<div class="bd">
+<p>hey {first name},</p>
+<p>Black Friday is 3 weeks out. Most stores run one sale ad all weekend and it's tired by Saturday.</p>
+<p>What tends to work better is 4 in a row: a teaser, the launch, a reminder, a last call. Ad Studio has a Black Friday mode that makes all 4 from one offer.</p>
+<p>I've started yours with {offer we found, or "your offer goes here"}. Change it if this year's is different.</p>
+<p><a href="#">Open my 4 Black Friday ads</a></p>
+<p>Farooq</p>
+</div>
+<div class="why">Only sent until 28 Nov. Link uses the <code>bfcm</code> param with stage and guidelines (prefill to verify).</div>
+</div>
+
+<div class="email">
+<div class="hd"><div><span class="k">Subject</span>what's running in supplements this month</div><div><span class="k">Preheader</span>last note from me for now</div></div>
+<div class="bd">
+<p>hey {first name},</p>
+<p>Last one from me for now. A quick read on supplement ads that have run 90+ days:</p>
+<p>Most open with a problem, not the product. Proof is a number or an ingredient list. The long-running videos are mostly one person talking to camera.</p>
+<p>Yours lead with the product and the flavor, and that's worked for you. I'd add one problem-first variant and see if it beats it.</p>
+<p><a href="#">The longest-running supplement ads</a></p>
+<p>Farooq</p>
+<p>P.S. If ads aren't your job, who should I send these to?</p>
+</div>
+<div class="why">90 words. Pattern lines must come from live Ad Radar counts for their category, not from memory.</div>
+</div>
+
+<h2 id="pipeline">Pipeline: backfill + daily feed (cloud)</h2>
+<p>One Cloudflare Worker with D1 and a queue, same pattern as the Meta sweep and CPMA. Nothing on the Mac.</p>
+<table>
+<tr><th>Stage</th><th>What it does</th><th>Tool and cost</th></tr>
+<tr><td>1. Intake</td><td>Daily: Ad Studio sign-ups (PostHog), PushOwl installs (Intercom), Brevo ecom sign-ups (Omni, blocked). One-time: the 6,591 backfill.</td><td>Existing keys</td></tr>
+<tr><td>2. Qualify</td><td>Live Meta ads by page id or domain. Keep ads whose landing URL is on their domain. Record count, oldest live ad, formats, creatives.</td><td>treg crawl4ai, $0.00165 a store (backfill about $11)</td></tr>
+<tr><td>3. Enrich</td><td>Products (<code>/products.json</code> on Shopify, Woo store API, else browser). Hero product = the one their ads link to most. Price, images, language, offer text.</td><td>Free</td></tr>
+<tr><td>4. Analyze</td><td>Pick hero ad. Vision teardown on the 6 points, JSON out. Category winners from Ad Radar.</td><td>Vision model. Ad Radar needs an internal read (ask #4)</td></tr>
+<tr><td>5. Make</td><td>Generate the variant in Ad Studio with their ad as reference. QA. Rehost images on our CDN (Meta image links expire). Build the before/after image.</td><td>5 to 6 credits a store, Tier A and B only</td></tr>
+<tr><td>6. Write</td><td>Fill slots per email. Lint gate. Build deep links with <code>email_campaign_id</code>.</td><td>LLM, cents per store</td></tr>
+<tr><td>7. Load</td><td>Upsert the Brevo contact with attributes, add to the track list. Daily cap with ramp.</td><td>Brevo API</td></tr>
+<tr><td>8. Learn</td><td>Pull Brevo clicks and replies, PostHog sign-ups and first generation. Weekly: rank value drops by click to sign-up.</td><td>Dashboard</td></tr>
+</table>
+<p><b>Human gate:</b> the first 50 dossiers and emails go to you for review. Nothing sends without your OK.</p>
+
+<h2 id="brevo">Brevo CRM setup</h2>
+<ul>
+<li><b>Attributes</b>: <code>STORE</code>, <code>FIRSTNAME</code>, <code>PRODUCT</code>, <code>CATEGORY</code>, <code>TIER</code>, <code>TRACK</code>, <code>LANG</code>, <code>HERO_AD_SINCE</code>, <code>OBS_LINE</code>, <code>CHANGES</code>, <code>BA_IMG</code>, <code>UGC_SCRIPT</code>, <code>BFCM_OFFER</code>, <code>PULSE</code>, <code>LINK_VARIANT</code>, <code>LINK_WINNERS</code>, <code>LINK_UGC</code>, <code>LINK_BFCM</code>, <code>LINK_RADAR</code>, <code>AS_USER</code>, <code>AS_PAID</code>.</li>
+<li><b>Lists</b>: AS Track A, AS Track B. <b>Automations</b>: entry on "added to list", waits per the sequence, exit conditions on <code>AS_USER</code> / <code>AS_PAID</code> / clicked. Automations can't be created by API, so they're a one-time build in the UI.</li>
+<li><b>Templates</b>: 5 per track, plain layout, all copy from attributes except the fixed lines.</li>
+<li><b>Ramp</b>: 100 a day week 1, 300 week 2, 500 after. Named contacts only.</li>
+</ul>
+
+<h2 id="metrics">What we measure</h2>
+<table>
+<tr><th>Metric</th><th>Why</th><th>Provisional target</th></tr>
+<tr><td>Click rate per email</td><td>Ranks the value drops</td><td>5 to 8% on email 1</td></tr>
+<tr><td>Reply rate</td><td>Real interest, and it helps deliverability</td><td>1 to 2%</td></tr>
+<tr><td>Sign-up within 14 days of email 1</td><td>Program outcome</td><td>3 to 5% of emailed</td></tr>
+<tr><td>First generation within 7 days of sign-up</td><td>Activation</td><td>60% of sign-ups</td></tr>
+<tr><td>Paid within 30 days</td><td>Revenue</td><td>to set after pilot</td></tr>
+<tr><td>Unsubscribe and spam rate</td><td>Guardrail</td><td>under 0.5% and 0.1%</td></tr>
+</table>
+<p class="small">Targets are estimates for the pilot, not benchmarks. They get replaced by pilot numbers.</p>
+
+<h2 id="asks">Product asks (small, high leverage)</h2>
+<ol>
+<li><b>Keep <code>guidelines</code> and <code>referenceAdUrl</code> when there's no <code>pId</code></b>: show "paste your product link" first, then continue with the prefill. Today the prefill is dropped.</li>
+<li><b>Carry the deep link through sign-up</b> (the guest flow exists; make sure params survive account creation).</li>
+<li><b><code>product_url=</code> prefill</b> on <code>/products/new</code> and the guest "Add your product" step (tested: not supported today).</li>
+<li><b>Ad Radar read</b>: top long-running ads per category and pattern counts, for emails 2 and 5.</li>
+<li><b>Internal batch generation</b> for variants at scale (or a sanctioned internal workflow).</li>
+<li><b>Attribution</b>: confirm <code>email_campaign_id</code> lands on <code>Enhanced Sign Up</code> in PostHog.</li>
+</ol>
+
+<h2 id="risks">Risks</h2>
+<div class="callout risk">
+<ul>
+<li><b>Stale data</b>: the sweep is from 29 Sep. Re-check live ads before each send.</li>
+<li><b>Expiring images</b>: Meta's image links expire. Rehost before building emails.</li>
+<li><b>Language</b>: about 2,000 Brevo contacts are in France, Italy, Germany and Spain. English copy to them is a choice, not a default.</li>
+<li><b>Consent</b>: these are Brevo and PushOwl customers being told about another product. Check the legal basis for EU contacts, keep a clear unsubscribe.</li>
+<li><b>Deliverability</b>: new sender. Ramp, named contacts only, no role inboxes, stop non-openers early.</li>
+<li><b>Wrong "your ad"</b>: only use ads whose landing URL is on their domain.</li>
+<li><b>Generated variant quality</b>: label fidelity and claims QA before it goes in an email. If QA fails twice, send the prompt-only version.</li>
+</ul>
+</div>
+
+<h2 id="decisions">Decisions for you</h2>
+<ol>
+<li><b>Sender</b>: you (growth) or a founder or CEO name?</li>
+<li><b>Brevo account</b>: the PushOwl account (where the MagicFit sender and list 51 live) or the Brevo CRM account?</li>
+<li><b>EU stores</b>: English only, or localise for FR, IT, DE, ES?</li>
+<li><b>Generation scope</b>: variant for Tier A and B only (my pick), or every store?</li>
+<li><b>Pilot</b>: 200 Tier A English-speaking stores starting this week with emails 1 and 4 first, so BFCM lands in time. My pick.</li>
+</ol>
+
+<h2 id="screens">All 38 screens captured (6 Nov)</h2>
+<p class="small">Click to enlarge.</p>
+<div class="shots" id="shots"></div>
+
+</div>
+<dialog id="lb"><img id="lbimg" alt=""></dialog>
+<script>
+const shots=[
+["01-landing-hero","Landing: ad team of one"],["02-home","Home: BFCM banner, static, video"],["03-home-templates","Home: start from a template"],
+["04-new-ad-menu","New ad: static or video"],["05-static-ads-page","Static ads: promote products"],["06-static-other-ways","From Ad Radar, collection, blank"],
+["07-create-an-ad-menu","Single, carousel, store-wide promo"],["08-static-dialog","Static ad: 5 credits"],["09-static-guidelines-reference","Guidelines + reference ad"],
+["10-static-advanced-settings","Advanced: angle, audience, style"],["11-static-angle-options","6 ad angles"],["12-static-guidelines-ref-field","Guidelines and reference fields"],
+["13-ad-radar","Ad Radar: pattern collections"],["14-ad-radar-filters","Filters: sort, signal, patterns"],["15-ad-radar-categories","20 categories"],
+["16-ad-radar-category-grid","Category grid with hooks"],["17-ad-radar-detail-clone","Ad detail: Clone for my product"],["18-video-ads-page","Video ads: BFCM, top products"],
+["19-video-ads-winning-others","Video ads working for other brands"],["20-video-proven-formats","Proven formats"],["21-video-agent-product","Video agent: product"],
+["22-video-agent-style","Video agent: style"],["23-video-settings","Length, quality, 12 languages"],["24-library","Library"],
+["25-library-menu","Clone, AI edit, copy link"],["26-library-detail-adcopy","Ad detail with Meta copy"],["27-library-more-options","Resize, upscale, make video"],
+["28-account-menu","Account menu"],["29-products","Products"],["30-create-product","Import from a URL"],
+["31-deeplink-guidelines-prefilled-static","Deep link: guidelines prefilled"],["32-deeplink-one-shot-ugc","Deep link: t=one_shot_ugc"],["33-deeplink-guidelines-prefilled-video","Deep link: video guidelines prefilled"],
+["34-signed-out-guest-flow","Signed out: guest add product"],["35-bfcm-dialog","BFCM: 4 stages"],["36-brand-kits","Brand kits"],
+["37-avatars","Avatars"],["38-templates","Templates"]];
+const box=document.getElementById('shots');
+for(const [f,c] of shots){const fig=document.createElement('figure');fig.innerHTML=`<img loading="lazy" src="shots/${f}.jpg" alt="${c}"><figcaption>${c}</figcaption>`;box.appendChild(fig);}
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
+document.addEventListener('click',e=>{const i=e.target.closest('.shots img, .ba img');if(i){lbimg.src=i.src;lb.showModal();}else if(e.target===lb||e.target===lbimg){lb.close();}});
+</script>
+</body>
+</html>
