@@ -1,0 +1,203 @@
+[
+ {
+  "store": "brickell",
+  "store_name": "Brickell Men's Products",
+  "first": "Josh",
+  "n": 1,
+  "subject": "your free kit ad, 3 years in",
+  "preheader": "same box, one new line on the image",
+  "html": "out/brickell/e1.html",
+  "words": 161,
+  "direct": [
+   "https://ads.brevo.com/agents/ads-maker?step=product&referenceAdUrl=https%3A%2F%2Ffarooqchisty-hub.github.io%2Fadstudio-email-program%2Fmail%2Fbrickell%2Fbefore_full.jpg&guidelines=This+is+a+variant+of+my+longest-running+ad+%28reference%29.+Keep+the+dark+stone+background%2C+the+open+black+box+and+the+bottles+laid+out+around+it.+Add+one+big+headline+on+the+image%3A+%22Your+first+kit+is+free.%22+Small+subline+under+it%3A+%22Join+1+million+men.+Just+cover+shipping.%22+One+rounded+button+at+the+bottom%3A+%22Claim+my+free+kit%22.+No+other+text.+Keep+the+product+labels+readable.&email_campaign_id=as_pilot_e1"
+  ]
+ },
+ {
+  "store": "brickell",
+  "store_name": "Brickell Men's Products",
+  "first": "Josh",
+  "n": 2,
+  "subject": "3 beauty ads that have run over a year",
+  "preheader": "one is a bundle, like your kit",
+  "html": "out/brickell/e2.html",
+  "words": 131,
+  "direct": [
+   "https://ads.brevo.com/ad-radar?ad=2e6f0f95-afa0-4581-a12d-1e1fb2211339&email_campaign_id=as_pilot_e2",
+   "https://ads.brevo.com/ad-radar?ad=02d2b79c-3020-444d-9dff-6816ae26fc17&email_campaign_id=as_pilot_e2",
+   "https://ads.brevo.com/ad-radar?ad=d61c13c0-8cf0-44d2-b2ca-eb40e6241a17&email_campaign_id=as_pilot_e2"
+  ]
+ },
+ {
+  "store": "brickell",
+  "store_name": "Brickell Men's Products",
+  "first": "Josh",
+  "n": 3,
+  "subject": "a ugc script for your sample kit",
+  "preheader": "15 seconds, built from your own best line",
+  "html": "out/brickell/e3.html",
+  "words": 108,
+  "direct": [
+   "https://ads.brevo.com/agents/video-ads?t=one_shot_ugc&guidelines=Script%2C+say+it+word+for+word%3A+%22Most+skincare+isn%27t+made+for+guys%2C+so+I+never+bothered.+Brickell+is.+I+started+with+their+sample+kit%2C+eight+of+their+best+sellers%2C+and+the+kit+was+free.+I+just+paid+shipping.+It%27s+built+to+control+oil+and+smooth+out+your+skin+with+a+simple+daily+routine.%22+One+presenter+talking+to+camera+in+a+real+room%2C+natural+light%2C+one+take.+Show+the+product+in+hand.&email_campaign_id=as_pilot_e3"
+  ]
+ },
+ {
+  "store": "brickell",
+  "store_name": "Brickell Men's Products",
+  "first": "Josh",
+  "n": 4,
+  "subject": "your 4 black friday ads, drafted",
+  "preheader": "one offer, four ads, ready to tweak",
+  "html": "out/brickell/e4.html",
+  "words": 84,
+  "direct": [
+   "https://ads.brevo.com/agents/ads-maker?bfcm=%7B%22fields%22%3A%7B%22stage%22%3A%22initial%22%2C%22launchKind%22%3A%22product%22%2C%22engageKind%22%3A%22welcome%22%2C%22bfcmStage%22%3A%22teaser%22%2C%22details%22%3A%22Free+8-piece+Best+Sellers+Kit.+Just+cover+shipping.%22%7D%2C%22guidelines%22%3A%22%22%2C%22variants%22%3A1%2C%22reference%22%3Anull%2C%22products%22%3A%5B%5D%7D&email_campaign_id=as_pilot_e4"
+  ]
+ },
+ {
+  "store": "brickell",
+  "store_name": "Brickell Men's Products",
+  "first": "Josh",
+  "n": 5,
+  "subject": "what's working in beauty ads this month",
+  "preheader": "last note from me for now",
+  "html": "out/brickell/e5.html",
+  "words": 89,
+  "direct": [
+   "https://ads.brevo.com/ad-radar?category=Beauty+%26+Personal+Care&sort=longest&email_campaign_id=as_pilot_e5"
+  ]
+ },
+ {
+  "store": "teamk9",
+  "store_name": "Team K9",
+  "first": "Michael",
+  "n": 1,
+  "subject": "your harness ad, 2.5 years in",
+  "preheader": "same dog, a new first line",
+  "html": "out/teamk9/e1.html",
+  "words": 162,
+  "direct": [
+   "https://ads.brevo.com/agents/ads-maker?step=product&referenceAdUrl=https%3A%2F%2Ffarooqchisty-hub.github.io%2Fadstudio-email-program%2Fmail%2Fteamk9%2Fbefore_full.jpg&guidelines=This+is+a+variant+of+my+longest-running+ad+%28reference%29.+Keep+the+German+Shepherd+wearing+the+harness+and+the+stack+of+harness+colours+on+the+left.+Replace+the+top+headline+with%3A+%22Walk+your+dog.+Not+the+other+way+around.%22+Small+subline+under+it%3A+%22No-pull+harness+with+a+grab+handle.+Free+size+exchanges.%22+Remove+the+%22Best+deals+of+the+season%22+badge+and+the+neon+outline.+One+rounded+button+at+the+bottom%3A+%22Shop+the+harness%22.+No+other+text.&email_campaign_id=as_pilot_e1"
+  ]
+ },
+ {
+  "store": "teamk9",
+  "store_name": "Team K9",
+  "first": "Michael",
+  "n": 2,
+  "subject": "the pet ads that have run the longest",
+  "preheader": "one is a harness, live 620 days",
+  "html": "out/teamk9/e2.html",
+  "words": 136,
+  "direct": [
+   "https://ads.brevo.com/ad-radar?ad=117f6486-8ac6-4abc-a38d-05773ccbb05f&email_campaign_id=as_pilot_e2",
+   "https://ads.brevo.com/ad-radar?ad=5633f3c0-9d28-486d-addc-7d2e2b6337db&email_campaign_id=as_pilot_e2",
+   "https://ads.brevo.com/ad-radar?ad=3da18f7e-fc44-47df-b1bb-980521702ad7&email_campaign_id=as_pilot_e2"
+  ]
+ },
+ {
+  "store": "teamk9",
+  "store_name": "Team K9",
+  "first": "Michael",
+  "n": 3,
+  "subject": "a ugc script for the no-pull harness",
+  "preheader": "15 seconds, one person, one take",
+  "html": "out/teamk9/e3.html",
+  "words": 109,
+  "direct": [
+   "https://ads.brevo.com/agents/video-ads?t=one_shot_ugc&guidelines=Script%2C+say+it+word+for+word%3A+%22My+dog+used+to+walk+me.+Every+single+morning.+This+is+the+Team+K9+no-pull+harness.+Four+metal+buckles%2C+a+handle+on+top+for+crossings%2C+and+it+comes+in+four+colors.+Wrong+size%3F+They+swap+it+for+free.+And+yes%2C+we+get+stopped+for+compliments+now.%22+One+presenter+talking+to+camera+in+a+real+room%2C+natural+light%2C+one+take.+Show+the+product+in+hand.&email_campaign_id=as_pilot_e3"
+  ]
+ },
+ {
+  "store": "teamk9",
+  "store_name": "Team K9",
+  "first": "Michael",
+  "n": 4,
+  "subject": "your black friday ads from last year are still on",
+  "preheader": "plus 4 new ones, drafted",
+  "html": "out/teamk9/e4.html",
+  "words": 97,
+  "direct": [
+   "https://ads.brevo.com/agents/ads-maker?bfcm=%7B%22fields%22%3A%7B%22stage%22%3A%22initial%22%2C%22launchKind%22%3A%22product%22%2C%22engageKind%22%3A%22welcome%22%2C%22bfcmStage%22%3A%22teaser%22%2C%22details%22%3A%22Up+to+50%25+off+the+No-Pull+Dog+Harness.%22%7D%2C%22guidelines%22%3A%22%22%2C%22variants%22%3A1%2C%22reference%22%3Anull%2C%22products%22%3A%5B%5D%7D&email_campaign_id=as_pilot_e4"
+  ]
+ },
+ {
+  "store": "teamk9",
+  "store_name": "Team K9",
+  "first": "Michael",
+  "n": 5,
+  "subject": "what's working in pet ads this month",
+  "preheader": "last note from me for now",
+  "html": "out/teamk9/e5.html",
+  "words": 101,
+  "direct": [
+   "https://ads.brevo.com/ad-radar?category=Pets+%26+Animals&sort=longest&email_campaign_id=as_pilot_e5"
+  ]
+ },
+ {
+  "store": "beserk",
+  "store_name": "Beserk",
+  "first": "Fleur",
+  "n": 1,
+  "subject": "your clearance ad, with the offer on it",
+  "preheader": "same picnic shot, one new line",
+  "html": "out/beserk/e1.html",
+  "words": 169,
+  "direct": [
+   "https://ads.brevo.com/agents/ads-maker?step=product&referenceAdUrl=https%3A%2F%2Ffarooqchisty-hub.github.io%2Fadstudio-email-program%2Fmail%2Fbeserk%2Fbefore_full.jpg&guidelines=This+is+a+variant+of+my+clearance+ad+%28reference%29.+Keep+the+woman+in+the+witch+hat%2C+the+black+dress%2C+the+picnic+blanket+and+the+moody+garden.+Add+one+big+headline+on+the+image%3A+%22Up+to+70%25+off+your+alt+faves.%22+Small+subline+under+it%3A+%22Clearance+just+got+a+refresh.+Stock+is+limited.%22+One+rounded+button+at+the+bottom%3A+%22Shop+the+sale%22.+No+other+text.&email_campaign_id=as_pilot_e1"
+  ]
+ },
+ {
+  "store": "beserk",
+  "store_name": "Beserk",
+  "first": "Fleur",
+  "n": 2,
+  "subject": "3 apparel ads that have run 300+ days",
+  "preheader": "all three put a person on camera",
+  "html": "out/beserk/e2.html",
+  "words": 119,
+  "direct": [
+   "https://ads.brevo.com/ad-radar?ad=2c9de0a8-b4c6-4919-a5a1-15f1ed15da1d&email_campaign_id=as_pilot_e2",
+   "https://ads.brevo.com/ad-radar?ad=5c1d6ca3-47c0-493d-8014-47159e39bd1a&email_campaign_id=as_pilot_e2",
+   "https://ads.brevo.com/ad-radar?ad=393fbc0c-1b5b-41ec-a680-28b7cc1962eb&email_campaign_id=as_pilot_e2"
+  ]
+ },
+ {
+  "store": "beserk",
+  "store_name": "Beserk",
+  "first": "Fleur",
+  "n": 3,
+  "subject": "a ugc script for the dollhouse dress",
+  "preheader": "15 seconds, built from your restock post",
+  "html": "out/beserk/e3.html",
+  "words": 99,
+  "direct": [
+   "https://ads.brevo.com/agents/video-ads?t=one_shot_ugc&guidelines=Script%2C+say+it+word+for+word%3A+%22It%27s+back.+The+Dollhouse+midi+from+Forest+Ink+sold+out%2C+and+it%27s+restocked+at+Beserk.+Lace-up+front%2C+midi+length%2C+and+it+runs+XXS+all+the+way+to+5XL.+I%27m+wearing+a+large.+If+you%27ve+been+waiting%2C+this+is+your+sign.%22+One+presenter+talking+to+camera+in+a+real+room%2C+natural+light%2C+one+take.+Show+the+product+in+hand.&email_campaign_id=as_pilot_e3"
+  ]
+ },
+ {
+  "store": "beserk",
+  "store_name": "Beserk",
+  "first": "Fleur",
+  "n": 4,
+  "subject": "your 4 black friday ads, drafted",
+  "preheader": "one offer, four ads, ready to tweak",
+  "html": "out/beserk/e4.html",
+  "words": 84,
+  "direct": [
+   "https://ads.brevo.com/agents/ads-maker?bfcm=%7B%22fields%22%3A%7B%22stage%22%3A%22initial%22%2C%22launchKind%22%3A%22product%22%2C%22engageKind%22%3A%22welcome%22%2C%22bfcmStage%22%3A%22teaser%22%2C%22details%22%3A%22%22%7D%2C%22guidelines%22%3A%22%22%2C%22variants%22%3A1%2C%22reference%22%3Anull%2C%22products%22%3A%5B%5D%7D&email_campaign_id=as_pilot_e4"
+  ]
+ },
+ {
+  "store": "beserk",
+  "store_name": "Beserk",
+  "first": "Fleur",
+  "n": 5,
+  "subject": "what's working in apparel ads this month",
+  "preheader": "last note from me for now",
+  "html": "out/beserk/e5.html",
+  "words": 107,
+  "direct": [
+   "https://ads.brevo.com/ad-radar?category=Apparel&sort=longest&email_campaign_id=as_pilot_e5"
+  ]
+ }
+]
