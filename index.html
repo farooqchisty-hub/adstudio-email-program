@@ -89,6 +89,7 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 <nav class="toc">
 <ol>
 <li><a href="#summary">The short version</a></li>
+<li><a href="#infra">Infra (cloud only)</a></li>
 <li><a href="#v2">v2 after your feedback</a></li>
 <li><a href="#voice">Voice framework</a></li>
 <li><a href="#storyboard">Storyboard framework</a></li>
@@ -135,6 +136,22 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 <div class="callout warn"><b>Timing:</b> Black Friday is 27 Nov, three weeks out. If the pilot starts by 12 Nov, the BFCM email lands while it's still useful. After 28 Nov that email swaps for a format-gap email.</div>
 
 
+
+
+<h2 id="infra">Infra (cloud only, 6 Nov night)</h2>
+<table>
+<tr><th>Piece</th><th>Where</th><th>Status</th></tr>
+<tr><td>Jobs, queue, data</td><td>Cloudflare Worker <code>adstudio-drops</code> + D1 + Queues + R2</td><td>to build</td></tr>
+<tr><td>Link router</td><td>Cloudflare Pages <code>adstudio-go</code> + KV</td><td><span class="pill">live</span></td></tr>
+<tr><td>Dashboard</td><td>Cloudflare Pages, Google login</td><td>to build</td></tr>
+<tr><td>New stores + owner contact</td><td>Omni API key: Brevo store connections, PushOwl installs, owner email, name, country (sets the email language)</td><td><span class="pill">tested</span> replaces Intercom</td></tr>
+<tr><td>Who already has Ad Studio</td><td>PostHog, Ad Studio's own analytics. Omni has no Ad Studio users (checked).</td><td><span class="pill">tested</span> only job left for PostHog</td></tr>
+<tr><td>Live ads</td><td>treg Meta Ad Library</td><td><span class="pill">tested</span></td></tr>
+<tr><td>Images (variants, storyboards)</td><td>Ad Studio API first, then Replicate, then fal, then treg</td><td>Ad Studio key works but its account (farooq.chisty@brevo.com) has 0 credits · Replicate <span class="pill">works</span> · fal needs a key</td></tr>
+<tr><td>Copy + image QA</td><td>AI model via OpenRouter</td><td>key in use elsewhere</td></tr>
+<tr><td>Sending</td><td>Brevo CRM key from the Worker, Mon + Thu</td><td><span class="pill">tested</span> from a Worker</td></tr>
+<tr><td>Category winners</td><td>Ad Radar data (needs an Ad Studio session) or the Ad Studio API</td><td>open</td></tr>
+</table>
 
 <h2 id="v2">v2 after your feedback (6 Nov, evening)</h2>
 <p class="small">Where this section and older sections disagree, this one wins. No human review, no reply asks, nothing pauses on a reply.</p>
