@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Value Drop Funnel</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f4f1;--card:#ffffff;--ink:#1d1f1e;--muted:#5f6461;--line:#d9dbd6;--green:#006a43;--green-soft:#e3f1ea;--amber:#8a5a00;--amber-soft:#fff2d6;--blue:#24508f;--blue-soft:#e6eef9;--grey-soft:#eeefec;--red:#9b2c2c;--red-soft:#fbe9e8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121413;--card:#1b1e1c;--ink:#ecefed;--muted:#a3aaa6;--line:#343a36;--green:#4cc38a;--green-soft:#163024;--amber:#f0c060;--amber-soft:#30270e;--blue:#8fb4ee;--blue-soft:#1a2638;--grey-soft:#242826;--red:#f08a8a;--red-soft:#3a1b1b}}
+:root[data-theme="dark"]{--bg:#121413;--card:#1b1e1c;--ink:#ecefed;--muted:#a3aaa6;--line:#343a36;--green:#4cc38a;--green-soft:#163024;--amber:#f0c060;--amber-soft:#30270e;--blue:#8fb4ee;--blue-soft:#1a2638;--grey-soft:#242826;--red:#f08a8a;--red-soft:#3a1b1b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 16px 80px}
+h1{font-size:30px;margin:6px 0 4px;letter-spacing:-.02em}
+.lede{color:var(--muted);margin:0 0 18px;max-width:760px}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:4px 10px;border-radius:999px;font-weight:600}
+.diagram{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;overflow-x:auto}
+svg{display:block;min-width:900px;width:100%;height:auto}
+svg text{font-family:Inter,system-ui,sans-serif;fill:var(--ink)}
+.box{fill:var(--card);stroke:var(--line);stroke-width:1.2}
+.src{fill:var(--blue-soft);stroke:var(--blue)}
+.gate{fill:var(--amber-soft);stroke:var(--amber)}
+.act{fill:var(--green-soft);stroke:var(--green)}
+.stop{fill:var(--red-soft);stroke:var(--red)}
+.neutral{fill:var(--grey-soft);stroke:var(--line)}
+.t{font-size:13px;font-weight:600}
+.s{font-size:11px;fill:var(--muted)}
+.lane{font-size:11px;font-weight:700;letter-spacing:.08em;fill:var(--muted)}
+.arrow{stroke:var(--muted);stroke-width:1.4;fill:none;marker-end:url(#ah)}
+.arrow.g{stroke:var(--green)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:12px 4px 0;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-2px;border:1px solid}
+.notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+@media (max-width:760px){.notes{grid-template-columns:1fr}}
+.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px}
+.note b{display:block;margin-bottom:4px}
+a{color:var(--green)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<span class="eyebrow">Funnel flow · 6 Nov 2026</span>
+<h1>Ad Studio value drops: the full funnel</h1>
+<p class="lede">From a store showing up (existing list or a daily install or sign-up) to a paid Ad Studio plan. Every arrow is automated except the review gate. <a href="../">Back to the plan</a></p>
+
+<div class="diagram">
+<svg viewBox="0 0 1080 1010" role="img" aria-labelledby="ttl desc">
+<title id="ttl">Ad Studio value-drop funnel</title>
+<desc id="desc">Sources feed a store check and an ads check, which route stores into three tracks. Each store gets a dossier and generated ads, copy passes a lint gate and a human review, Brevo CRM sends a five-email sequence with deep links into Ad Studio, sign-ups activate and convert, and everyone moves into recurring drops.</desc>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--muted)"/></marker></defs>
+
+<text class="lane" x="20" y="30">1 · WHO</text>
+<rect class="box src" x="20" y="44" width="240" height="66" rx="10"/><text class="t" x="36" y="70">Existing list (backfill)</text><text class="s" x="36" y="90">6,591 contacts at 6,502 stores</text><text class="s" x="36" y="104">already running Meta ads</text>
+<rect class="box src" x="290" y="44" width="240" height="66" rx="10"/><text class="t" x="306" y="70">PushOwl installs (daily)</text><text class="s" x="306" y="90">every new install, any plan</text><text class="s" x="306" y="104">orders/30d used to prioritise</text>
+<rect class="box src" x="560" y="44" width="240" height="66" rx="10"/><text class="t" x="576" y="70">Brevo sign-ups (daily)</text><text class="s" x="576" y="90">new orgs with a store URL or</text><text class="s" x="576" y="104">ecommerce plugin</text>
+<rect class="box src" x="830" y="44" width="230" height="66" rx="10"/><text class="t" x="846" y="70">Ad Studio sign-ups (daily)</text><text class="s" x="846" y="90">~9 a day, store domain from</text><text class="s" x="846" y="104">the import event</text>
+
+<path class="arrow" d="M140 110 V150 H520"/><path class="arrow" d="M410 110 V150"/><path class="arrow" d="M680 110 V150 H560"/><path class="arrow" d="M945 110 V150 H560"/>
+
+<text class="lane" x="20" y="146">2 · QUALIFY</text>
+<rect class="box gate" x="330" y="160" width="420" height="60" rx="10"/><text class="t" x="346" y="184">Store check</text><text class="s" x="346" y="204">live storefront, has products, not a marketplace, test or agency inbox, named person</text>
+<path class="arrow" d="M540 220 V250"/>
+<rect class="box gate" x="330" y="252" width="420" height="60" rx="10"/><text class="t" x="346" y="276">Ads check (Meta Ad Library, $0.002 a store)</text><text class="s" x="346" y="296">live ads landing on their own domain, count, oldest ad, formats</text>
+
+<path class="arrow" d="M400 312 V350 H150 V372"/><path class="arrow" d="M540 312 V372"/><path class="arrow" d="M680 312 V350 H900 V372"/><path class="arrow" d="M750 282 H1000 V372"/>
+
+<text class="lane" x="20" y="364">3 · ROUTE</text>
+<rect class="box act" x="40" y="374" width="230" height="74" rx="10"/><text class="t" x="56" y="398">Track A · running ads</text><text class="s" x="56" y="418">not on Ad Studio yet</text><text class="s" x="56" y="434">hero = their longest-running ad</text>
+<rect class="box act" x="300" y="374" width="230" height="74" rx="10"/><text class="t" x="316" y="398">Track N · no ads yet</text><text class="s" x="316" y="418">viable store, never advertised</text><text class="s" x="316" y="434">hero = their bestseller</text>
+<rect class="box act" x="560" y="374" width="230" height="74" rx="10"/><text class="t" x="576" y="398">Track B · already a user</text><text class="s" x="576" y="418">signed up to Ad Studio</text><text class="s" x="576" y="434">links go straight into the app</text>
+<rect class="box stop" x="830" y="374" width="230" height="74" rx="10"/><text class="t" x="846" y="398">Not viable</text><text class="s" x="846" y="418">no store, no products, role inbox</text><text class="s" x="846" y="434">no email</text>
+
+<path class="arrow" d="M155 448 V486 H540"/><path class="arrow" d="M415 448 V486"/><path class="arrow" d="M675 448 V486 H540"/>
+
+<text class="lane" x="20" y="482">4 · MAKE</text>
+<rect class="box" x="200" y="496" width="680" height="76" rx="10"/><text class="t" x="216" y="520">Dossier and assets (per store)</text><text class="s" x="216" y="540">6-point teardown of the hero ad · variant generated in Ad Studio (about 6 credits) · 3 category winners from Ad Radar</text><text class="s" x="216" y="556">UGC script from their own best line · BFCM or seasonal offer · category read · deep links built and checked</text>
+<path class="arrow" d="M540 572 V602"/>
+<rect class="box gate" x="200" y="604" width="330" height="62" rx="10"/><text class="t" x="216" y="628">Copy lint gate</text><text class="s" x="216" y="648">word caps, contractions, no dashes, only true claims</text>
+<rect class="box gate" x="550" y="604" width="330" height="62" rx="10"/><text class="t" x="566" y="628">Human review</text><text class="s" x="566" y="648">first 50 stores, then spot checks</text>
+<path class="arrow" d="M530 635 H548"/>
+<path class="arrow" d="M715 666 V694 H540 V708"/>
+
+<text class="lane" x="20" y="704">5 · SEND</text>
+<rect class="box act" x="200" y="710" width="680" height="72" rx="10"/><text class="t" x="216" y="734">Brevo CRM · "Farooq from Ad Studio" &lt;campaigns@m.brevo.com&gt;, replies to Farooq</text><text class="s" x="216" y="754">D0 your ad remade · D3 3 winners cloned · D6 UGC script · D9 BFCM set (seasonal after 28 Nov) · D13 category read</text><text class="s" x="216" y="770">ramp 100, 300, then 500 a day · named contacts only · exit on sign-up, reply or unsubscribe</text>
+<path class="arrow" d="M540 782 V810"/>
+
+<text class="lane" x="20" y="806">6 · LAND</text>
+<rect class="box" x="200" y="812" width="330" height="72" rx="10"/><text class="t" x="216" y="836">ads.brevo.com/signup?next=…</text><text class="s" x="216" y="856">sign-up keeps the deep link (next is</text><text class="s" x="216" y="872">carried in the Google sign-in state)</text>
+<path class="arrow" d="M530 848 H548"/>
+<rect class="box act" x="550" y="812" width="330" height="72" rx="10"/><text class="t" x="566" y="836">Lands pre-loaded</text><text class="s" x="566" y="856">their ad + our prompt · video format + script</text><text class="s" x="566" y="872">Ad Radar winner · BFCM offer filled in</text>
+<path class="arrow g" d="M715 884 V910"/>
+
+<text class="lane" x="20" y="906">7 · CONVERT</text>
+<rect class="box act" x="200" y="912" width="210" height="62" rx="10"/><text class="t" x="216" y="936">First generation</text><text class="s" x="216" y="956">activation, within 7 days</text>
+<rect class="box act" x="440" y="912" width="200" height="62" rx="10"/><text class="t" x="456" y="936">Paid plan</text><text class="s" x="456" y="956">$19 / $49 / Studio Max</text>
+<rect class="box neutral" x="670" y="912" width="390" height="62" rx="10"/><text class="t" x="686" y="936">Recurring drops (everyone, max 1 a week)</text><text class="s" x="686" y="956">new ad spotted · winner stopped · new product · seasonal set</text>
+<path class="arrow g" d="M410 943 H438"/><path class="arrow" d="M640 943 H668"/>
+<path class="arrow" d="M880 746 H1040 V910"/>
+</svg>
+<div class="legend"><span><i style="background:var(--blue-soft);border-color:var(--blue)"></i>sources</span><span><i style="background:var(--amber-soft);border-color:var(--amber)"></i>checks and gates</span><span><i style="background:var(--green-soft);border-color:var(--green)"></i>action and outcome</span><span><i style="background:var(--red-soft);border-color:var(--red)"></i>stop</span><span><i style="background:var(--grey-soft);border-color:var(--line)"></i>ongoing</span></div>
+</div>
+
+<div class="notes">
+<div class="note"><b>Exits</b>Sign-up moves a store from Track A or N to Track B. A reply goes to you and pauses the sequence. Three unopened in a row skips to the last email.</div>
+<div class="note"><b>Cost per store</b>Ads check $0.002. Variant about 6 Ad Studio credits. Copy a few cents of model time. Re-check live ads before every send.</div>
+<div class="note"><b>Not verified yet</b>One real sign-up through <code>signup?next=</code> end to end (it needs a new account, which you do in one click with Google).</div>
+</div>
+</div>
+</body>
+</html>

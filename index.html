@@ -83,12 +83,17 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 <span class="eyebrow">Plan v1 · 6 Nov 2026</span>
 <h1>Ad Studio <em>value drops</em>: a personal email program for stores already running ads</h1>
 <p class="lede">Every email hands the store something made for them: a better version of an ad they're running, a winning ad from their category cloned around their product, a ready prompt, a script. Each one opens the exact Ad Studio screen with that work already loaded.</p>
-<p class="meta">Built from a full walk of ads.brevo.com (38 screens below), the 6,502-store Meta sweep, PostHog, and one real worked example made inside Ad Studio.</p>
+<p class="meta"><b>Updated 6 Nov, afternoon:</b> 15 previews sent, link workaround tested, recurring drops and all-installs feed added, <a href="funnel/">funnel diagram</a>. Built from a full walk of ads.brevo.com (38 screens below), the 6,502-store Meta sweep, PostHog, and one real worked example made inside Ad Studio.</p>
 </header>
 
 <nav class="toc">
 <ol>
 <li><a href="#summary">The short version</a></li>
+<li><a href="#update">Update after your review</a></li>
+<li><a href="#previews">The 15 preview emails</a></li>
+<li><a href="#recurring">Recurring drops after BFCM</a></li>
+<li><a href="#allinstalls">All installs, daily</a></li>
+<li><a href="funnel/">Funnel diagram</a></li>
 <li><a href="#product">What the product can do (and land on)</a></li>
 <li><a href="#deeplinks">Verified deep links</a></li>
 <li><a href="#who">Who we email</a></li>
@@ -124,6 +129,105 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 <li><b>Runs in the cloud.</b> Backfill the 6,591, then a daily Worker: intake new sign-ups and installs, check for live ads, build the dossier, make the variant, write, load to Brevo. A person reviews the first 50 before anything sends.</li>
 </ol>
 <div class="callout warn"><b>Timing:</b> Black Friday is 27 Nov, three weeks out. If the pilot starts by 12 Nov, the BFCM email lands while it's still useful. After 28 Nov that email swaps for a format-gap email.</div>
+
+
+<h2 id="update">Update after your review (6 Nov, afternoon)</h2>
+<div class="grid g3">
+<div class="stat"><b>15 sent</b><span>pilot previews to farooq.chisty@brevo.com from Brevo CRM: 3 real stores x 5 emails</span></div>
+<div class="stat"><b>3 variants</b><span>made in Ad Studio through the same deep links the emails use</span></div>
+<div class="stat"><b>200 stores</b><span>pilot list ready: Tier A, English, named contact, 15 categories</span></div>
+</div>
+<h3>Your decisions, applied</h3>
+<ul>
+<li><b>Sender</b>: "Farooq from Ad Studio" &lt;campaigns@m.brevo.com&gt; on Brevo CRM (verified, DKIM and DMARC set), reply-to farooq.chisty@brevo.com so P.S. replies reach you.</li>
+<li><b>Generated ad for everyone</b>: every store gets a variant (Track A) or a first ad (Track N). About 6 credits each.</li>
+<li><b>Audience</b>: not only Ad Studio sign-ups. Every new PushOwl install and every Brevo sign-up is checked daily for a live store and live ads, then routed (see <a href="#allinstalls">all installs</a>).</li>
+<li><b>After Black Friday</b>: email 4 turns into a seasonal set, and everyone moves into <a href="#recurring">recurring drops</a> after the five intro emails.</li>
+</ul>
+<h3 id="links">Link strategy, tested (no engineering needed)</h3>
+<table>
+<tr><th>Finding</th><th>What we do</th></tr>
+<tr><td><b>Signed-out visitors lose every parameter.</b> Any deep link redirects to <code>/login</code> and drops the query. Nothing is saved in storage or cookies.</td><td>Every link for non-users is <code>ads.brevo.com/signup?next=&lt;deep link&gt;</code>. The sign-up page puts <code>next</code> into the Google sign-in state and onto its "Sign in" link. Not yet verified end to end, because it needs a brand-new account.</td></tr>
+<tr><td><b>Static links without a product id dropped the prompt</b> (<code>step=settings</code>).</td><td>Use <code>step=product</code>. It opens "Static ad from a reference" at the product step with "Paste a link". Tested: the prompt and their ad survive the paste and arrive at settings.</td></tr>
+<tr><td><b>BFCM state lives in the URL.</b></td><td><code>bfcm={"fields":{"bfcmStage":"teaser","details":"&lt;offer&gt;"},"guidelines":"…"}</code> prefills stage, offer and guidelines. Tested.</td></tr>
+<tr><td><b>Existing users</b> get the product step with their most recent product pre-selected.</td><td>Fine for Track B. The email says "pick your product".</td></tr>
+<tr><td><b>Brevo rewrites UTM tags</b> at save (Google Analytics tracking on the template).</td><td>Set the template's UTM campaign to <code>as_pilot</code>. <code>email_campaign_id</code> rides inside <code>next</code> untouched.</td></tr>
+<tr><td><b>The Ad Radar data endpoint</b> returns hook text, angle, proof type, days live and a merchant takeaway for every ad.</td><td>Emails 2 and 5 are built from it per category. It throttles (503s) under load, so the pipeline retries with backoff.</td></tr>
+</table>
+
+<h3 id="previews">The 15 preview emails (as sent)</h3>
+<p>Three real pilot stores, each with its own live ad, a variant made in Ad Studio, real Ad Radar winners and scripts from their own lines.</p>
+<div class="grid g3">
+<div class="card"><b>Brickell Men's Products</b><br><span class="small">men's skincare · 154 live ads · hero live since Mar 2023</span><div class="ba"><figure><img src="mail/brickell/before.jpg" alt=""><figcaption>Theirs</figcaption></figure><figure><img src="mail/brickell/after.jpg" alt=""><figcaption>Variant</figcaption></figure></div></div>
+<div class="card"><b>Team K9</b><br><span class="small">dog gear · 127 live ads · hero live since Mar 2024</span><div class="ba"><figure><img src="mail/teamk9/before.jpg" alt=""><figcaption>Theirs</figcaption></figure><figure><img src="mail/teamk9/after.jpg" alt=""><figcaption>Variant</figcaption></figure></div></div>
+<div class="card"><b>Beserk</b><br><span class="small">alt fashion, AU · 89 live ads · hero live since Jun 2026</span><div class="ba"><figure><img src="mail/beserk/before.jpg" alt=""><figcaption>Theirs</figcaption></figure><figure><img src="mail/beserk/after.jpg" alt=""><figcaption>Variant</figcaption></figure></div></div>
+</div>
+<div class="callout warn"><b>QA flag:</b> Team K9's variant shows the harness twice (on the dog and as a floating product shot). The QA step should catch this and regenerate once before it ships.</div>
+<table>
+<tr><th>Store</th><th>#</th><th>Subject</th><th>Brevo template</th><th>HTML</th></tr>
+<tr><td>Brickell Men's Products</td><td>1</td><td>your free kit ad, 3 years in</td><td>#59222</td><td><a href="mail/brickell/html/e1.html">view</a></td></tr>
+<tr><td>Brickell Men's Products</td><td>2</td><td>3 beauty ads that have run over a year</td><td>#59223</td><td><a href="mail/brickell/html/e2.html">view</a></td></tr>
+<tr><td>Brickell Men's Products</td><td>3</td><td>a ugc script for your sample kit</td><td>#59224</td><td><a href="mail/brickell/html/e3.html">view</a></td></tr>
+<tr><td>Brickell Men's Products</td><td>4</td><td>your 4 black friday ads, drafted</td><td>#59225</td><td><a href="mail/brickell/html/e4.html">view</a></td></tr>
+<tr><td>Brickell Men's Products</td><td>5</td><td>what's working in beauty ads this month</td><td>#59226</td><td><a href="mail/brickell/html/e5.html">view</a></td></tr>
+<tr><td>Team K9</td><td>1</td><td>your harness ad, 2.5 years in</td><td>#59227</td><td><a href="mail/teamk9/html/e1.html">view</a></td></tr>
+<tr><td>Team K9</td><td>2</td><td>the pet ads that have run the longest</td><td>#59228</td><td><a href="mail/teamk9/html/e2.html">view</a></td></tr>
+<tr><td>Team K9</td><td>3</td><td>a ugc script for the no-pull harness</td><td>#59229</td><td><a href="mail/teamk9/html/e3.html">view</a></td></tr>
+<tr><td>Team K9</td><td>4</td><td>your black friday ads from last year are still on</td><td>#59230</td><td><a href="mail/teamk9/html/e4.html">view</a></td></tr>
+<tr><td>Team K9</td><td>5</td><td>what's working in pet ads this month</td><td>#59231</td><td><a href="mail/teamk9/html/e5.html">view</a></td></tr>
+<tr><td>Beserk</td><td>1</td><td>your clearance ad, with the offer on it</td><td>#59232</td><td><a href="mail/beserk/html/e1.html">view</a></td></tr>
+<tr><td>Beserk</td><td>2</td><td>3 apparel ads that have run 300+ days</td><td>#59233</td><td><a href="mail/beserk/html/e2.html">view</a></td></tr>
+<tr><td>Beserk</td><td>3</td><td>a ugc script for the dollhouse dress</td><td>#59234</td><td><a href="mail/beserk/html/e3.html">view</a></td></tr>
+<tr><td>Beserk</td><td>4</td><td>your 4 black friday ads, drafted</td><td>#59235</td><td><a href="mail/beserk/html/e4.html">view</a></td></tr>
+<tr><td>Beserk</td><td>5</td><td>what's working in apparel ads this month</td><td>#59236</td><td><a href="mail/beserk/html/e5.html">view</a></td></tr>
+</table>
+
+<h2 id="recurring">After Black Friday: recurring drops</h2>
+<p>Once the five intro emails are done, every store moves to drops: at most one email a week, and only when there's something new to hand them. Triggers come first, the calendar fills the gaps.</p>
+<table>
+<tr><th>Drop</th><th>Trigger (weekly re-scan, $0.002 a store)</th><th>What's in it</th><th>Lands on</th></tr>
+<tr><td><b>New ad spotted</b></td><td>They launched a new ad this week</td><td>"Saw your new X ad. Here's a variant to test next to it."</td><td>static from reference</td></tr>
+<tr><td><b>Winner stopped</b></td><td>An ad live 90+ days just turned off</td><td>"Your X ad ran 214 days and just stopped. Three fresh versions in the same style."</td><td>static from reference, 3 variants</td></tr>
+<tr><td><b>New product</b></td><td>A new product appears on their store</td><td>Launch ad and a UGC script for it, made</td><td>static + <code>t=one_shot_ugc</code></td></tr>
+<tr><td><b>Sale on site, not in ads</b></td><td>Compare-at prices or a sale banner appear</td><td>The offer, put on their best ad</td><td>store-wide promotion</td></tr>
+<tr><td><b>Format gap</b></td><td>Only statics, or no 9:16</td><td>Their best static as an 11 s video, or resized for Reels</td><td><code>t=animate_static_ads</code></td></tr>
+<tr><td><b>Seasonal set</b></td><td>Calendar, matched to category and country</td><td>A 2 to 4 ad set for the moment</td><td>static + video</td></tr>
+<tr><td><b>Monthly category pulse</b></td><td>First Tuesday of the month</td><td>The new long-runners in their category, one cloned for them</td><td>Ad Radar</td></tr>
+<tr><td><b>Quarterly report card</b></td><td>Every 3 months</td><td>Their live ads vs the category: count, longevity, format mix, one fix</td><td>Ad Radar + static</td></tr>
+</table>
+<h3>Seasonal calendar (first 6 months)</h3>
+<table>
+<tr><th>When</th><th>Moment</th><th>Best fit</th></tr>
+<tr><td>1 to 15 Dec</td><td>Last shipping day, gifting</td><td>gifts, beauty, jewelry, apparel</td></tr>
+<tr><td>20 to 27 Dec</td><td>Boxing Day (AU, UK, CA), after-Christmas sale</td><td>everyone with a sale</td></tr>
+<tr><td>Early Jan</td><td>New year routines</td><td>fitness, supplements, beauty, home</td></tr>
+<tr><td>Late Jan to 14 Feb</td><td>Valentine's</td><td>jewelry, beauty, apparel, gifts</td></tr>
+<tr><td>Early Mar</td><td>Mother's Day UK (14 Mar 2027)</td><td>UK stores</td></tr>
+<tr><td>Late Apr to 9 May</td><td>Mother's Day US</td><td>US stores</td></tr>
+</table>
+<h3>Rules</h3>
+<ul>
+<li>One drop a week, max. A trigger beats the calendar.</li>
+<li>Skip anyone who generated in Ad Studio in the last 7 days; they get product tips in the app instead.</li>
+<li>Three unopened drops in a row pauses them for 30 days.</li>
+<li>Same voice, same lint gate, same one-link rule.</li>
+</ul>
+
+<h2 id="allinstalls">All installs and sign-ups, daily</h2>
+<p>The daily feed now covers every new PushOwl install and every new Brevo sign-up, not only Ad Studio sign-ups. See the <a href="funnel/">funnel diagram</a>.</p>
+<table>
+<tr><th>Step</th><th>How</th><th>Status</th></tr>
+<tr><td>PushOwl installs</td><td>New installs in the last 24 h (Intercom contacts or the install table), with shop domain and orders/30d</td><td><span class="pill">key present</span></td></tr>
+<tr><td>Brevo sign-ups</td><td>New orgs with a store URL or ecommerce plugin</td><td><span class="pill red">blocked</span> Omni needs re-auth via /mcp; nao failed to connect; the Brevo CRM API rejects this machine's IP</td></tr>
+<tr><td>Ad Studio sign-ups</td><td>PostHog <code>Enhanced Sign Up</code> + store domain</td><td><span class="pill">works</span></td></tr>
+<tr><td>Store check</td><td>Storefront live, products present, not a marketplace or test store, named person</td><td>free</td></tr>
+<tr><td>Ads check</td><td>Meta Ad Library by domain or page</td><td>$0.002</td></tr>
+<tr><td>Route</td><td>Running ads to Track A · no ads to Track N · already a user to Track B · otherwise no email</td><td></td></tr>
+</table>
+<h3>Track N: stores with no ads yet</h3>
+<div class="flow"><span><b>D0</b> Your first ad, made (from your bestseller)</span><i>→</i><span><b>D3</b> 3 winners in your category, cloned</span><i>→</i><span><b>D6</b> UGC script for your bestseller</span><i>→</i><span><b>D9</b> Seasonal set</span><i>→</i><span><b>D13</b> What works in your category</span></div>
+<p>Same rules as Track A. The first email shows the ad we made from their own product photo, not a before/after.</p>
+<div class="callout risk"><b>Cloud sending needs one admin decision:</b> the Brevo CRM API only accepts allowlisted IPs, and a cloud Worker's IPs aren't on the list. Either a Brevo CRM admin issues a key for this program with the Worker's egress allowed, or sends stay on the Brevo UI path I used today. I didn't change any security setting.</div>
 
 <h2 id="product">What the product can do, and what each feature is worth to a store</h2>
 <p>Walked every screen on 6 Nov. Nav: Home, Ad Radar, Your library, New ad (Static or Video). Account: products, brand kits, avatars, voice cloning, pricing.</p>
@@ -401,8 +505,8 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 
 <h2 id="asks">Product asks (small, high leverage)</h2>
 <ol>
-<li><b>Keep <code>guidelines</code> and <code>referenceAdUrl</code> when there's no <code>pId</code></b>: show "paste your product link" first, then continue with the prefill. Today the prefill is dropped.</li>
-<li><b>Carry the deep link through sign-up</b> (the guest flow exists; make sure params survive account creation).</li>
+<li><b>Keep <code>guidelines</code> and <code>referenceAdUrl</code> when there's no <code>pId</code></b>: show "paste your product link" first, then continue with the prefill. <i>Workaround live: <code>step=product</code> already does this.</i></li>
+<li><b>Carry the deep link through sign-up</b>. <i>Workaround: <code>/signup?next=</code>; confirm with one real sign-up.</i></li>
 <li><b><code>product_url=</code> prefill</b> on <code>/products/new</code> and the guest "Add your product" step (tested: not supported today).</li>
 <li><b>Ad Radar read</b>: top long-running ads per category and pattern counts, for emails 2 and 5.</li>
 <li><b>Internal batch generation</b> for variants at scale (or a sanctioned internal workflow).</li>
@@ -422,15 +526,15 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 </ul>
 </div>
 
-<h2 id="decisions">Decisions for you</h2>
-<ol>
-<li><b>Sender</b>: you (growth) or a founder or CEO name?</li>
-<li><b>Brevo account</b>: the PushOwl account (where the MagicFit sender and list 51 live) or the Brevo CRM account?</li>
-<li><b>EU stores</b>: English only, or localise for FR, IT, DE, ES?</li>
-<li><b>Generation scope</b>: variant for Tier A and B only (my pick), or every store?</li>
-<li><b>Pilot</b>: 200 Tier A English-speaking stores starting this week with emails 1 and 4 first, so BFCM lands in time. My pick.</li>
-</ol>
-
+<h2 id="decisions">Decisions</h2>
+<ul>
+<li><b>Sender</b>: decided, Farooq from Ad Studio &lt;campaigns@m.brevo.com&gt;.</li>
+<li><b>Account</b>: decided, Brevo CRM.</li>
+<li><b>Generation</b>: decided, every store.</li>
+<li><b>Pilot</b>: decided, 200 stores, after you review the 15 previews.</li>
+<li><b>Open</b>: EU stores (about 2,000 Brevo contacts in FR, IT, DE, ES): English or localised? The pilot is English-only.</li>
+<li><b>Open</b>: who on the Brevo CRM side can issue an API key the cloud Worker can use.</li>
+</ul>
 <h2 id="screens">All 38 screens captured (6 Nov)</h2>
 <p class="small">Click to enlarge.</p>
 <div class="shots" id="shots"></div>
