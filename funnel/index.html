@@ -30,6 +30,7 @@ svg text{font-family:Inter,system-ui,sans-serif;fill:var(--ink)}
 .lane{font-size:11px;font-weight:700;letter-spacing:.08em;fill:var(--muted)}
 .arrow{stroke:var(--muted);stroke-width:1.4;fill:none;marker-end:url(#ah)}
 .arrow.g{stroke:var(--green)}
+.line{stroke:var(--muted);stroke-width:1.4;fill:none}
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin:12px 4px 0;font-size:12px;color:var(--muted)}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-2px;border:1px solid}
 .notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
@@ -57,10 +58,10 @@ a{color:var(--green)}
 <rect class="box src" x="560" y="44" width="240" height="66" rx="10"/><text class="t" x="576" y="70">Brevo sign-ups (daily)</text><text class="s" x="576" y="90">new orgs with a store URL or</text><text class="s" x="576" y="104">ecommerce plugin</text>
 <rect class="box src" x="830" y="44" width="230" height="66" rx="10"/><text class="t" x="846" y="70">Ad Studio sign-ups (daily)</text><text class="s" x="846" y="90">~9 a day, store domain from</text><text class="s" x="846" y="104">the import event</text>
 
-<path class="arrow" d="M140 110 V150 H520"/><path class="arrow" d="M410 110 V150"/><path class="arrow" d="M680 110 V150 H560"/><path class="arrow" d="M945 110 V150 H560"/>
+<path class="line" d="M140 110 V146 H945 V110"/><path class="line" d="M410 110 V146"/><path class="line" d="M680 110 V146"/><path class="arrow" d="M540 146 V158"/>
 
 <text class="lane" x="20" y="146">2 · QUALIFY</text>
-<rect class="box gate" x="330" y="160" width="420" height="60" rx="10"/><text class="t" x="346" y="184">Store check</text><text class="s" x="346" y="204">live storefront, has products, not a marketplace, test or agency inbox, named person</text>
+<rect class="box gate" x="330" y="160" width="420" height="60" rx="10"/><text class="t" x="346" y="184">Store check</text><text class="s" x="346" y="204">live store with products, not a marketplace or test store, named person</text>
 <path class="arrow" d="M540 220 V250"/>
 <rect class="box gate" x="330" y="252" width="420" height="60" rx="10"/><text class="t" x="346" y="276">Ads check (Meta Ad Library, $0.002 a store)</text><text class="s" x="346" y="296">live ads landing on their own domain, count, oldest ad, formats</text>
 
@@ -72,7 +73,7 @@ a{color:var(--green)}
 <rect class="box act" x="560" y="374" width="230" height="74" rx="10"/><text class="t" x="576" y="398">Track B · already a user</text><text class="s" x="576" y="418">signed up to Ad Studio</text><text class="s" x="576" y="434">links go straight into the app</text>
 <rect class="box stop" x="830" y="374" width="230" height="74" rx="10"/><text class="t" x="846" y="398">Not viable</text><text class="s" x="846" y="418">no store, no products, role inbox</text><text class="s" x="846" y="434">no email</text>
 
-<path class="arrow" d="M155 448 V486 H540"/><path class="arrow" d="M415 448 V486"/><path class="arrow" d="M675 448 V486 H540"/>
+<path class="line" d="M155 448 V480 H675 V448"/><path class="line" d="M415 448 V480"/><path class="arrow" d="M540 480 V494"/>
 
 <text class="lane" x="20" y="482">4 · MAKE</text>
 <rect class="box" x="200" y="496" width="680" height="76" rx="10"/><text class="t" x="216" y="520">Dossier and assets (per store)</text><text class="s" x="216" y="540">6-point teardown of the hero ad · variant generated in Ad Studio (about 6 credits) · 3 category winners from Ad Radar</text><text class="s" x="216" y="556">UGC script from their own best line · BFCM or seasonal offer · category read · deep links built and checked</text>
@@ -90,7 +91,7 @@ a{color:var(--green)}
 <rect class="box" x="200" y="812" width="330" height="72" rx="10"/><text class="t" x="216" y="836">ads.brevo.com/signup?next=…</text><text class="s" x="216" y="856">sign-up keeps the deep link (next is</text><text class="s" x="216" y="872">carried in the Google sign-in state)</text>
 <path class="arrow" d="M530 848 H548"/>
 <rect class="box act" x="550" y="812" width="330" height="72" rx="10"/><text class="t" x="566" y="836">Lands pre-loaded</text><text class="s" x="566" y="856">their ad + our prompt · video format + script</text><text class="s" x="566" y="872">Ad Radar winner · BFCM offer filled in</text>
-<path class="arrow g" d="M715 884 V910"/>
+<path class="arrow g" d="M715 884 V898 H305 V910"/>
 
 <text class="lane" x="20" y="906">7 · CONVERT</text>
 <rect class="box act" x="200" y="912" width="210" height="62" rx="10"/><text class="t" x="216" y="936">First generation</text><text class="s" x="216" y="956">activation, within 7 days</text>
