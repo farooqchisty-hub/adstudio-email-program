@@ -150,7 +150,7 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 <tr><td>Images (variants, storyboards)</td><td>Ad Studio API first, then Replicate, then fal, then treg</td><td>Ad Studio key works but its account (farooq.chisty@brevo.com) has 0 credits · Replicate <span class="pill">works</span> · fal needs a key</td></tr>
 <tr><td>Copy + image QA</td><td>AI model via OpenRouter</td><td>key in use elsewhere</td></tr>
 <tr><td>Sending</td><td>Brevo CRM key from the Worker, Mon + Thu</td><td><span class="pill">tested</span> from a Worker</td></tr>
-<tr><td>Category winners</td><td>Ad Radar data (needs an Ad Studio session) or the Ad Studio API</td><td>open</td></tr>
+<tr><td>Category winners</td><td>Ad Radar through the Ad Studio API key (mints its own token, no login to expire)</td><td><span class="pill">tested</span> Apparel returns 503 since 6 Nov (Ad Studio side), so the pipeline uses the last good copy</td></tr>
 </table>
 
 <h2 id="v2">v2 after your feedback (6 Nov, evening)</h2>
