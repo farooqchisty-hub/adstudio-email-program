@@ -83,12 +83,16 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 <span class="eyebrow">Plan v1 · 6 Nov 2026</span>
 <h1>Ad Studio <em>value drops</em>: a personal email program for stores already running ads</h1>
 <p class="lede">Every email hands the store something made for them: a better version of an ad they're running, a winning ad from their category cloned around their product, a ready prompt, a script. Each one opens the exact Ad Studio screen with that work already loaded.</p>
-<p class="meta"><b>Updated 6 Nov, afternoon:</b> 15 previews sent, link workaround tested, recurring drops and all-installs feed added, <a href="funnel/">funnel diagram</a>. Built from a full walk of ads.brevo.com (38 screens below), the 6,502-store Meta sweep, PostHog, and one real worked example made inside Ad Studio.</p>
+<p class="meta"><b>v2, 6 Nov evening:</b> hand-typed voice, emoji subjects, storyboards, Mon + Thu cadence, link router, no human review. <a href="#v2">Jump to v2</a>. <b>Earlier, 6 Nov afternoon:</b> 15 previews sent, link workaround tested, recurring drops and all-installs feed added, <a href="funnel/">funnel diagram</a>. Built from a full walk of ads.brevo.com (38 screens below), the 6,502-store Meta sweep, PostHog, and one real worked example made inside Ad Studio.</p>
 </header>
 
 <nav class="toc">
 <ol>
 <li><a href="#summary">The short version</a></li>
+<li><a href="#v2">v2 after your feedback</a></li>
+<li><a href="#voice">Voice framework</a></li>
+<li><a href="#storyboard">Storyboard framework</a></li>
+<li><a href="#newtypes">New email types</a></li>
 <li><a href="#update">Update after your review</a></li>
 <li><a href="#previews">The 15 preview emails</a></li>
 <li><a href="#recurring">Recurring drops after BFCM</a></li>
@@ -130,6 +134,107 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 </ol>
 <div class="callout warn"><b>Timing:</b> Black Friday is 27 Nov, three weeks out. If the pilot starts by 12 Nov, the BFCM email lands while it's still useful. After 28 Nov that email swaps for a format-gap email.</div>
 
+
+
+<h2 id="v2">v2 after your feedback (6 Nov, evening)</h2>
+<p class="small">Where this section and older sections disagree, this one wins. No human review, no reply asks, nothing pauses on a reply.</p>
+<div class="grid g3">
+<div class="stat"><b>15 resent</b><span>v2 previews to farooq.chisty@brevo.com, same templates #59222 to #59236</span></div>
+<div class="stat"><b>Mon + Thu</b><span>two emails a week, every week, for every store</span></div>
+<div class="stat"><b>~90 / day</b><span>new Brevo store connections from Omni, the daily feed is unblocked</span></div>
+</div>
+
+<h3 id="voice">Voice framework: "say it, then type it"</h3>
+<p>The test: read it out loud. If you wouldn't say it to a founder on a call, it goes.</p>
+<div class="grid g2">
+<div class="card"><b>1. Start mid-thought.</b><br>"hey Josh, your kit ad has been running since March 2023." No warm-up line.</div>
+<div class="card"><b>2. One thought per line.</b><br>Short paragraphs do the work. No labels like "What changed:".</div>
+<div class="card"><b>3. Talk like you talk.</b><br>Contractions, "so", "honestly", "basically". Max 2 fillers per email.</div>
+<div class="card"><b>4. Have an opinion.</b><br>"I'd start with #3." People act on a pick, not a menu.</div>
+<div class="card"><b>5. Make the gap felt.</b><br>"Nobody pays for an ad that long unless it's selling. You can have your version today."</div>
+<div class="card"><b>6. Say what happens on click.</b><br>"Your ad and my prompt are already loaded. About a minute." Never "learn more".</div>
+<div class="card"><b>7. Uneven rhythm.</b><br>A 3-word line next to a 20-word line. Never three matching sentences in a row.</div>
+<div class="card"><b>8. One emoji, max.</b><br>Where a person would put one: end of a line or next to the button. Never as bullets.</div>
+<div class="card"><b>9. Only their facts.</b><br>Their dates, their copy in quotes, their product page. No invented results.</div>
+<div class="card"><b>10. No asks, no endings.</b><br>No "reply", no "let me know", no "last one from me". The drops keep coming.</div>
+</div>
+<p><b>Banned (the lint blocks these):</b> one thing stood out, here's, what changed, proven winner, decent signal, worth a look, tends to work, game changer, unlock, elevate, seamless, dive, leverage, let me know, I hope, feel free, reply, last one, em dashes, semicolons, exclamation marks, more than one emoji, sentences over 26 words.</p>
+
+<h3 id="subjects2">Subject lines v2: built for opens</h3>
+<ol>
+<li><b>Promise something already made</b>: "i remade your…", "…is storyboarded", "…are drafted".</li>
+<li><b>Name their thing</b>: the product, the store or their name.</li>
+<li><b>A real number when there is one</b>: "620 days", "24 of your 30 ads".</li>
+<li><b>One emoji</b>, at the start or the end, that matches the gift: 🎁 🎬 👀 📊 🛍️ 🖤.</li>
+<li><b>Lowercase, 25 to 45 characters</b>, reads like a person typed it.</li>
+<li><b>The preview line finishes the thought</b> with the second-best fact.</li>
+<li><b>A/B two per email</b>, pick by clicks, not opens.</li>
+</ol>
+
+<h3 id="cadence">Cadence: Monday and Thursday, every week</h3>
+<table>
+<tr><th>When</th><th>Email</th><th>What's made for them</th></tr>
+<tr><td>Mon, week 1</td><td>Your ad, remade</td><td>Variant of their longest-running ad, before/after</td></tr>
+<tr><td>Thu, week 1</td><td>Winners you can clone</td><td>3 ads in their category live 300+ days, one-tap clone</td></tr>
+<tr><td>Mon, week 2</td><td>Your video, storyboarded</td><td>6-shot storyboard (one image) + full script, loaded into Multi-shot story</td></tr>
+<tr><td>Thu, week 2</td><td>Seasonal set</td><td>BFCM until 28 Nov, then the next moment on the calendar</td></tr>
+<tr><td>Mon, week 3</td><td>Read like a media buyer</td><td>Strategy on their live ads: 3 findings, 3 moves</td></tr>
+<tr><td>Thu, week 3 onwards</td><td>Drops</td><td>Rotates the new types below plus triggers (new ad, winner stopped, new product, sale on site)</td></tr>
+</table>
+<p class="small">Deliverability guard (automatic, not human): anyone with zero opens after 8 sends drops to Mondays only. Opens or clicks put them back on Mon + Thu.</p>
+
+<h3 id="storyboard">Storyboard framework: one image, six shots</h3>
+<p>All six shots come out of one generation in Ad Studio's Generate page (5 credits), not six. The product photo is the reference, so the packaging stays true in every panel.</p>
+<pre>One storyboard sheet for a 15 second vertical UGC video ad.
+Layout: a 3 by 2 grid of six equal vertical 9:16 photo panels, thin white gutters, light grey background.
+A small black circle with a white number 1 to 6 in the top left of each panel. No other text.
+The same [presenter: age, look, wardrobe] in every panel, in [setting, light].
+The product is exactly the product in the reference image, labels readable, same packaging in every panel.
+Panel 1: [hook shot]. Panel 2: [product reveal]. Panel 3: [use, close-up]. Panel 4: [proof or feature].
+Panel 5: [payoff, social moment]. Panel 6: [product to camera, call to action].
+Photorealistic, shot on a phone, natural UGC look, one color grade across all panels.</pre>
+<ul>
+<li><b>Script rules</b>: 6 shots, about 16 seconds, one line of voiceover per shot, built from their own best line, every claim from their product page or ads.</li>
+<li><b>Text stays out of the image</b> (only panel numbers). The script lives in the email as a numbered table, so nothing gets misspelled.</li>
+<li><b>QA</b>: same face in all 6, product matches, no stray text (Beserk's panel 6 drew a size tag, so the script doesn't name a size).</li>
+<li><b>The button</b> opens Multi-shot story with all 6 shots and lines in the guidelines.</li>
+</ul>
+<div class="grid g3">
+<div class="card"><img src="mail/brickell/storyboard.jpg" alt="Brickell storyboard" style="width:100%;border-radius:8px"></div>
+<div class="card"><img src="mail/teamk9/storyboard.jpg" alt="Team K9 storyboard" style="width:100%;border-radius:8px"></div>
+<div class="card"><img src="mail/beserk/storyboard.jpg" alt="Beserk storyboard" style="width:100%;border-radius:8px"></div>
+</div>
+
+<h3 id="newtypes">New email types (made for them, from our features)</h3>
+<table>
+<tr><th>Type</th><th>What we make</th><th>Feature</th><th>Cost</th></tr>
+<tr><td><b>Read like a media buyer</b> (built, email 5)</td><td>3 findings on their live ads (repetition, staleness, fake urgency, CTA sameness) and 3 moves for this week</td><td>Ad Library data + Ad Radar</td><td>$0.002</td></tr>
+<tr><td><b>Ad idea, drawn out</b></td><td>One infographic image: a new ad concept for their product, why it works, the 3 clicks to make it in Ad Studio. The button opens it pre-filled.</td><td>Generate (one image)</td><td>5 credits</td></tr>
+<tr><td><b>6 angles, one product</b></td><td>One image with 6 mock ads for their bestseller (showcase, lifestyle, testimonial, sale, comparison, how-to). They pick one, it opens with that angle.</td><td>Generate + Ads Maker angles</td><td>5 credits</td></tr>
+<tr><td><b>Template drop</b></td><td>Their product in an Ad Studio template (product drop, dolly shot, stop motion), first frames as one image, clone button</td><td>Templates</td><td>5 credits</td></tr>
+<tr><td><b>Your static, moving</b></td><td>Their best static turned into a short video with Generate's image-to-video, first frame in the email</td><td>Generate video / Animate static ads</td><td>video credits</td></tr>
+</table>
+
+<h3 id="routing">Links: no more sign-up page for logged-in people</h3>
+<ul>
+<li>Every button goes through <code>adstudio-go.pages.dev/g</code>. It checks the recipient's token: known Ad Studio account goes straight to the deep link, everyone else to sign-up carrying the link.</li>
+<li>Found: the sign-up page doesn't actually log you out (your session survives), but it shows the sign-up form to logged-in people, which looks like a logout.</li>
+<li>Your previews use a QA token that counts as "has an account", so your clicks land straight in the app. Your Ad Studio login is sheik.farooq@pushowl.com.</li>
+<li>Small engineering ask that removes the router later: if a session exists, <code>/signup</code> and <code>/login</code> should jump straight to <code>next</code>.</li>
+</ul>
+
+<h3 id="data2">Data and sending</h3>
+<ul>
+<li><b>Omni reconnected</b>. New Brevo store connections: 33 to 134 a day (Shopify handle per connection, resolves to the live domain).</li>
+<li><b>Brevo CRM key works from Cloudflare</b> (tested from a Worker, 200). Only this laptop's IP is blocked. Cloud sending is unblocked.</li>
+<li><b>nao</b> is behind Cloudflare Access and needs a service token from Brevo's Cloudflare admin. Not needed: Omni covers the feed.</li>
+<li><b>Translated</b>: EU stores get each email written natively in their language (same voice rules, not a word-for-word translation), and the video link carries their language.</li>
+<li><b>Sender</b>: "Farooq from Ad Studio" &lt;campaigns@m.brevo.com&gt;. Replies currently go to farooq.chisty@brevo.com. No email asks for one.</li>
+</ul>
+
+<h3>The 15 v2 previews (as sent)</h3>
+<table><tr><th>Send</th><th>Store</th><th>Subject</th><th>Template</th><th>HTML</th></tr>
+<tr><td>Mon, week 1</td><td>Brickell Men's Products</td><td>🎁 i remade your free kit ad</td><td>#59222</td><td><a href="mail/brickell/v2/e1.html">view</a></td></tr><tr><td>Thu, week 1</td><td>Brickell Men's Products</td><td>3 beauty ads you can steal today 👀</td><td>#59223</td><td><a href="mail/brickell/v2/e2.html">view</a></td></tr><tr><td>Mon, week 2</td><td>Brickell Men's Products</td><td>josh, your kit video is storyboarded 🎬</td><td>#59224</td><td><a href="mail/brickell/v2/e3.html">view</a></td></tr><tr><td>Thu, week 2</td><td>Brickell Men's Products</td><td>your 4 black friday ads are drafted 🛍️</td><td>#59225</td><td><a href="mail/brickell/v2/e4.html">view</a></td></tr><tr><td>Mon, week 3</td><td>Brickell Men's Products</td><td>📊 24 of your 30 ads say the same thing</td><td>#59226</td><td><a href="mail/brickell/v2/e5.html">view</a></td></tr><tr><td>Mon, week 1</td><td>Team K9</td><td>🐕 i remade your harness ad</td><td>#59227</td><td><a href="mail/teamk9/v2/e1.html">view</a></td></tr><tr><td>Thu, week 1</td><td>Team K9</td><td>the harness ad that has run 620 days 👀</td><td>#59228</td><td><a href="mail/teamk9/v2/e2.html">view</a></td></tr><tr><td>Mon, week 2</td><td>Team K9</td><td>michael, your harness video is storyboarded 🎬</td><td>#59229</td><td><a href="mail/teamk9/v2/e3.html">view</a></td></tr><tr><td>Thu, week 2</td><td>Team K9</td><td>your 2025 black friday ads are still live 😬</td><td>#59230</td><td><a href="mail/teamk9/v2/e4.html">view</a></td></tr><tr><td>Mon, week 3</td><td>Team K9</td><td>📊 15 of your ads say &quot;offer ends soon&quot;</td><td>#59231</td><td><a href="mail/teamk9/v2/e5.html">view</a></td></tr><tr><td>Mon, week 1</td><td>Beserk</td><td>🖤 i put your 70% off on the photo</td><td>#59232</td><td><a href="mail/beserk/v2/e1.html">view</a></td></tr><tr><td>Thu, week 1</td><td>Beserk</td><td>3 apparel ads you can clone today 👀</td><td>#59233</td><td><a href="mail/beserk/v2/e2.html">view</a></td></tr><tr><td>Mon, week 2</td><td>Beserk</td><td>fleur, the dollhouse video is storyboarded 🎬</td><td>#59234</td><td><a href="mail/beserk/v2/e3.html">view</a></td></tr><tr><td>Thu, week 2</td><td>Beserk</td><td>your 4 black friday ads are drafted 🖤</td><td>#59235</td><td><a href="mail/beserk/v2/e4.html">view</a></td></tr><tr><td>Mon, week 3</td><td>Beserk</td><td>📊 16 new ads in 30 days. now this</td><td>#59236</td><td><a href="mail/beserk/v2/e5.html">view</a></td></tr></table>
 
 <h2 id="update">Update after your review (6 Nov, afternoon)</h2>
 <div class="grid g3">

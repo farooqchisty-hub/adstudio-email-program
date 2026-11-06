@@ -42,9 +42,9 @@ a{color:var(--green)}
 </head>
 <body>
 <div class="wrap">
-<span class="eyebrow">Funnel flow · 6 Nov 2026</span>
+<span class="eyebrow">Funnel flow · v2 · 6 Nov 2026</span>
 <h1>Ad Studio value drops: the full funnel</h1>
-<p class="lede">From a store showing up (existing list or a daily install or sign-up) to a paid Ad Studio plan. Every arrow is automated except the review gate. <a href="../">Back to the plan</a></p>
+<p class="lede">From a store showing up (existing list or a daily install or sign-up) to a paid Ad Studio plan. Every step is automated. No human review, no reply handling. <a href="../">Back to the plan</a></p>
 
 <div class="diagram">
 <svg viewBox="0 0 1080 1010" role="img" aria-labelledby="ttl desc">
@@ -78,17 +78,17 @@ a{color:var(--green)}
 <text class="lane" x="20" y="482">4 · MAKE</text>
 <rect class="box" x="200" y="496" width="680" height="76" rx="10"/><text class="t" x="216" y="520">Dossier and assets (per store)</text><text class="s" x="216" y="540">6-point teardown of the hero ad · variant generated in Ad Studio (about 6 credits) · 3 category winners from Ad Radar</text><text class="s" x="216" y="556">UGC script from their own best line · BFCM or seasonal offer · category read · deep links built and checked</text>
 <path class="arrow" d="M540 572 V602"/>
-<rect class="box gate" x="200" y="604" width="330" height="62" rx="10"/><text class="t" x="216" y="628">Copy lint gate</text><text class="s" x="216" y="648">word caps, contractions, no dashes, only true claims</text>
-<rect class="box gate" x="550" y="604" width="330" height="62" rx="10"/><text class="t" x="566" y="628">Human review</text><text class="s" x="566" y="648">first 50 stores, then spot checks</text>
+<rect class="box gate" x="200" y="604" width="330" height="62" rx="10"/><text class="t" x="216" y="628">Copy lint gate (automatic)</text><text class="s" x="216" y="648">voice rules, caps, 1 emoji, only true claims</text>
+<rect class="box gate" x="550" y="604" width="330" height="62" rx="10"/><text class="t" x="566" y="628">Image QA (automatic)</text><text class="s" x="566" y="648">label, spelling, duplicates. 2 fails: prompt-only</text>
 <path class="arrow" d="M530 635 H548"/>
 <path class="arrow" d="M715 666 V694 H540 V708"/>
 
 <text class="lane" x="20" y="704">5 · SEND</text>
-<rect class="box act" x="200" y="710" width="680" height="72" rx="10"/><text class="t" x="216" y="734">Brevo CRM · "Farooq from Ad Studio" &lt;campaigns@m.brevo.com&gt;, replies to Farooq</text><text class="s" x="216" y="754">D0 your ad remade · D3 3 winners cloned · D6 UGC script · D9 BFCM set (seasonal after 28 Nov) · D13 category read</text><text class="s" x="216" y="770">ramp 100, 300, then 500 a day · named contacts only · exit on sign-up, reply or unsubscribe</text>
+<rect class="box act" x="200" y="710" width="680" height="72" rx="10"/><text class="t" x="216" y="734">Brevo CRM · "Farooq from Ad Studio" &lt;campaigns@m.brevo.com&gt;, replies to Farooq</text><text class="s" x="216" y="754">Mon + Thu: ad remade · winners to clone · storyboard + script · seasonal set · media-buyer read · drops</text><text class="s" x="216" y="770">translated for EU · ramp 100, 300, 500 a day · replies don't pause · only unsubscribe stops it</text>
 <path class="arrow" d="M540 782 V810"/>
 
 <text class="lane" x="20" y="806">6 · LAND</text>
-<rect class="box" x="200" y="812" width="330" height="72" rx="10"/><text class="t" x="216" y="836">ads.brevo.com/signup?next=…</text><text class="s" x="216" y="856">sign-up keeps the deep link (next is</text><text class="s" x="216" y="872">carried in the Google sign-in state)</text>
+<rect class="box" x="200" y="812" width="330" height="72" rx="10"/><text class="t" x="216" y="836">Link router (adstudio-go)</text><text class="s" x="216" y="856">has an account: straight to the deep link</text><text class="s" x="216" y="872">new: sign-up page carrying the deep link</text>
 <path class="arrow" d="M530 848 H548"/>
 <rect class="box act" x="550" y="812" width="330" height="72" rx="10"/><text class="t" x="566" y="836">Lands pre-loaded</text><text class="s" x="566" y="856">their ad + our prompt · video format + script</text><text class="s" x="566" y="872">Ad Radar winner · BFCM offer filled in</text>
 <path class="arrow g" d="M715 884 V898 H305 V910"/>
@@ -96,7 +96,7 @@ a{color:var(--green)}
 <text class="lane" x="20" y="906">7 · CONVERT</text>
 <rect class="box act" x="200" y="912" width="210" height="62" rx="10"/><text class="t" x="216" y="936">First generation</text><text class="s" x="216" y="956">activation, within 7 days</text>
 <rect class="box act" x="440" y="912" width="200" height="62" rx="10"/><text class="t" x="456" y="936">Paid plan</text><text class="s" x="456" y="956">$19 / $49 / Studio Max</text>
-<rect class="box neutral" x="670" y="912" width="390" height="62" rx="10"/><text class="t" x="686" y="936">Recurring drops (everyone, max 1 a week)</text><text class="s" x="686" y="956">new ad spotted · winner stopped · new product · seasonal set</text>
+<rect class="box neutral" x="670" y="912" width="390" height="62" rx="10"/><text class="t" x="686" y="936">Recurring drops (Mon + Thu, everyone)</text><text class="s" x="686" y="956">new ad spotted · winner stopped · new product · seasonal set</text>
 <path class="arrow g" d="M410 943 H438"/><path class="arrow" d="M640 943 H668"/>
 <path class="arrow" d="M880 746 H1040 V910"/>
 </svg>
@@ -104,9 +104,9 @@ a{color:var(--green)}
 </div>
 
 <div class="notes">
-<div class="note"><b>Exits</b>Sign-up moves a store from Track A or N to Track B. A reply goes to you and pauses the sequence. Three unopened in a row skips to the last email.</div>
+<div class="note"><b>Exits</b>Sign-up moves a store to Track B (links go straight into the app). Paid moves it to a product-tips track. Only an unsubscribe stops email. Replies change nothing.</div>
 <div class="note"><b>Cost per store</b>Ads check $0.002. Variant about 6 Ad Studio credits. Copy a few cents of model time. Re-check live ads before every send.</div>
-<div class="note"><b>Not verified yet</b>One real sign-up through <code>signup?next=</code> end to end (it needs a new account, which you do in one click with Google).</div>
+<div class="note"><b>Not verified yet</b>One brand-new sign-up through the router end to end (needs a new account; one click with a spare Google account).</div>
 </div>
 </div>
 </body>
