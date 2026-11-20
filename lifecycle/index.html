@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ad Studio lifecycle funnel</title>
+<meta name="description" content="How the Ad Studio sign-up-to-upgrade email funnel works: sources, Meta ads qualification, stages, cadence, content, sending, replies and spend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f4f1;--card:#ffffff;--ink:#1d1f1e;--muted:#5f6461;--line:#e3e4e0;--green:#006a43;--green-soft:#e6f2ec;--amber:#8a5a00;--amber-soft:#fff4dc;--red:#9b2c2c;--red-soft:#fdeceb;--code:#f0f1ed}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121413;--card:#1b1e1c;--ink:#ecefed;--muted:#a3aaa6;--line:#2c312e;--green:#4cc38a;--green-soft:#173326;--amber:#f0c060;--amber-soft:#33290f;--red:#f08a8a;--red-soft:#3a1b1b;--code:#242826}}
+:root[data-theme="dark"]{--bg:#121413;--card:#1b1e1c;--ink:#ecefed;--muted:#a3aaa6;--line:#2c312e;--green:#4cc38a;--green-soft:#173326;--amber:#f0c060;--amber-soft:#33290f;--red:#f08a8a;--red-soft:#3a1b1b;--code:#242826}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:32px 16px 96px}
+header.top{padding:24px 0 8px}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:4px 10px;border-radius:999px;font-weight:600}
+h1{font-size:40px;line-height:1.1;margin:14px 0 8px;letter-spacing:-.02em}
+h1 em,h2 em{font-family:"Instrument Serif",serif;font-weight:400;color:var(--green)}
+h2{font-size:28px;line-height:1.2;margin:56px 0 12px;letter-spacing:-.01em;scroll-margin-top:16px}
+h3{font-size:19px;margin:28px 0 8px}
+p{margin:8px 0 12px}
+.lede{font-size:18px;color:var(--muted);max-width:760px}
+.meta{font-size:13px;color:var(--muted)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:24px 0}
+nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px}
+nav.toc a{color:var(--ink);text-decoration:none}
+nav.toc a:hover{color:var(--green)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.callout{border-left:4px solid var(--green);background:var(--green-soft);border-radius:10px;padding:14px 18px;margin:16px 0}
+.callout.warn{border-color:var(--amber);background:var(--amber-soft)}
+.callout.risk{border-color:var(--red);background:var(--red-soft)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:760px){.g2,.g3{grid-template-columns:1fr}nav.toc ol{columns:1}h1{font-size:30px}h2{font-size:23px}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.stat b{display:block;font-size:26px;letter-spacing:-.02em}
+.stat span{font-size:13px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:block;overflow-x:auto}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+code{background:var(--code);padding:1px 6px;border-radius:6px;font-size:13px;word-break:break-word}
+pre{background:var(--code);padding:14px;border-radius:10px;overflow-x:auto;font-size:13px;line-height:1.5;white-space:pre-wrap}
+ul,ol{padding-left:22px}
+li{margin:4px 0}
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.shots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.shots figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.shots img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:top;cursor:zoom-in}
+.shots figcaption{font-size:12px;padding:8px 10px;color:var(--muted)}
+.email{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:16px 0;overflow:hidden}
+.email .hd{padding:12px 18px;border-bottom:1px solid var(--line);font-size:14px;background:var(--bg)}
+.email .hd div{margin:2px 0}
+.email .hd .k{color:var(--muted);display:inline-block;width:86px}
+.email .bd{padding:18px 22px;font-size:15px;max-width:640px}
+.email .bd p{margin:0 0 12px}
+.email .bd a{color:var(--green);font-weight:600}
+.email .why{padding:10px 18px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.ba figure{margin:0}
+.ba img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
+.ba figcaption{font-size:12px;color:var(--muted);margin-top:4px}
+.pill{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--green-soft);color:var(--green);font-weight:600;margin-right:4px}
+.pill.amber{background:var(--amber-soft);color:var(--amber)}
+.pill.red{background:var(--red-soft);color:var(--red)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.flow span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:14px}
+.flow i{color:var(--muted);font-style:normal}
+dialog{border:0;padding:0;background:transparent;max-width:96vw}
+dialog img{max-width:96vw;max-height:92vh;border-radius:10px;display:block}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+.small{font-size:13px;color:var(--muted)}
+</style>
+<style>
+.card svg text{font-family:Inter,system-ui,sans-serif}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span class="eyebrow">Ad Studio by Brevo · lifecycle funnel</span>
+  <h1>Sign-up to upgrade, <em>on autopilot</em></h1>
+  <p class="lede">How the lifecycle email funnel works: where the contacts come from, how we find who runs Meta ads, what each person gets, when it sends, and how replies are handled. Everything runs in the cloud. Nothing sends without Farooq's go.</p>
+  <p class="meta">Updated 21 Nov 2026 · Owner: Farooq, Growth at Brevo</p>
+</header>
+
+<nav class="toc"><ol>
+  <li><a href="#short">The short version</a></li>
+  <li><a href="#flow">Data flow</a></li>
+  <li><a href="#lists">Who we email: backlog and daily</a></li>
+  <li><a href="#ads">Meta ads qualification</a></li>
+  <li><a href="#stages">Stages and emails</a></li>
+  <li><a href="#cadence">Cadence and schedule</a></li>
+  <li><a href="#content">How the content is made</a></li>
+  <li><a href="#send">Sending, replies, safety</a></li>
+  <li><a href="#models">Models and spend</a></li>
+  <li><a href="#dash">Dashboard</a></li>
+  <li><a href="#status">What is built, what is next</a></li>
+</ol></nav>
+
+<h2 id="short">The short version</h2>
+<div class="grid g3">
+  <div class="stat"><b>124,355</b><span>sendable contacts in the PushOwl Brevo account</span></div>
+  <div class="stat"><b>100k+</b><span>Brevo ecom store connections (Omni), ~100 new a day</span></div>
+  <div class="stat"><b>~2%</b><span>sign-up to paid today (PostHog, 60 days). The number this funnel moves.</span></div>
+</div>
+<ul>
+  <li><b>Who:</b> Brevo ecom sign-ups and PushOwl installs, split into stores that run Meta ads (A), stores that do not (B), and people with no store on file (U).</li>
+  <li><b>What they get:</b> a short, warm note from Farooq that hands them something already made or picked for their store: a template, an Ad Radar winner to clone, a video script, a remade ad. Every link opens Ad Studio with it loaded.</li>
+  <li><b>From:</b> "Farooq from Ad Studio" &lt;sheik.farooq@pushowl.com&gt;, one to one through the PushOwl Brevo account. Replies are answered in Farooq's Gmail under a hidden label.</li>
+  <li><b>When:</b> at most 2 emails a week (Mon, Thu), one follow-up after each value email, stop on upgrade or unsubscribe.</li>
+  <li><b>Spend:</b> image and video generation capped at $1,000 a month and only for ad runners in the middle or bottom of the funnel. Text AI is uncapped.</li>
+</ul>
+
+<h2 id="flow">Data flow</h2>
+<div class="card" style="padding:12px">
+<svg viewBox="0 0 960 760" width="100%" role="img" aria-labelledby="dft dfd" style="display:block;font-family:Inter,system-ui,sans-serif">
+  <title id="dft">Lifecycle funnel data flow</title>
+  <desc id="dfd">Sources on the left feed a Cloudflare Worker pipeline in the middle: sync, enrich, stage, Meta ads check, write, assets, checks, schedule, send. Outputs on the right: inbox, Ad Studio deep links, Gmail replies, Calendly, dashboard. Events flow back into the stages.</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker>
+    <style>
+      .src rect{fill:var(--card);stroke:var(--line);stroke-width:1.2}
+      .pipe rect{fill:var(--green-soft);stroke:var(--green);stroke-width:1.2}
+      .out rect{fill:var(--amber-soft);stroke:var(--amber);stroke-width:1.2}
+      .t{fill:var(--ink);font-size:14px;font-weight:600}
+      .s{fill:var(--muted);font-size:11.5px}
+      .h{fill:var(--muted);font-size:12px;font-weight:600;letter-spacing:.08em}
+      .ln{stroke:var(--muted);stroke-width:1.3;fill:none}
+      .fb{stroke:var(--green);stroke-width:1.3;fill:none;stroke-dasharray:5 4}
+      .zone{fill:none;stroke:var(--line);stroke-width:1;stroke-dasharray:4 4}
+    </style>
+  </defs>
+  <text x="20" y="28" class="h">SOURCES</text>
+  <text x="330" y="28" class="h">CLOUDFLARE WORKER · adstudio-drops</text>
+  <text x="730" y="28" class="h">OUTPUTS</text>
+  <rect x="318" y="38" width="350" height="690" rx="14" class="zone"/>
+
+  <g class="src">
+    <rect x="16" y="50" width="250" height="62" rx="10"/><text x="30" y="74" class="t">PushOwl Brevo account</text><text x="30" y="94" class="s">contacts + Ad Studio fields, blocklist</text>
+    <rect x="16" y="128" width="250" height="62" rx="10"/><text x="30" y="152" class="t">Omni</text><text x="30" y="172" class="s">Brevo ecom store connections, owners</text>
+    <rect x="16" y="206" width="250" height="62" rx="10"/><text x="30" y="230" class="t">PostHog</text><text x="30" y="250" class="s">generations, downloads, visits, domains</text>
+    <rect x="16" y="284" width="250" height="62" rx="10"/><text x="30" y="308" class="t">Meta Ad Library (Adyntel)</text><text x="30" y="328" class="s">domain to page to live ads, via treg</text>
+    <rect x="16" y="362" width="250" height="62" rx="10"/><text x="30" y="386" class="t">Ad Studio</text><text x="30" y="406" class="s">291 templates, Ad Radar winners, clone</text>
+    <rect x="16" y="440" width="250" height="62" rx="10"/><text x="30" y="464" class="t">Store websites</text><text x="30" y="484" class="s">products, photos, language</text>
+  </g>
+
+  <g class="pipe">
+    <rect x="338" y="50" width="310" height="54" rx="10"/><text x="354" y="72" class="t">1 · Sync</text><text x="354" y="92" class="s">daily 03:00 UTC + hourly, into D1</text>
+    <rect x="338" y="118" width="310" height="54" rx="10"/><text x="354" y="140" class="t">2 · Enrich</text><text x="354" y="160" class="s">store domain, activity, downloads, cleanup</text>
+    <rect x="338" y="186" width="310" height="54" rx="10"/><text x="354" y="208" class="t">3 · Stage + holdout</text><text x="354" y="228" class="s">TOFU, MOFU 2.1 / 2.3, BOFU 3.1, paid · 10% held out</text>
+    <rect x="338" y="254" width="310" height="54" rx="10"/><text x="354" y="276" class="t">4 · Meta ads check</text><text x="354" y="296" class="s">queue, ~100 a minute → cohort A / B / U</text>
+    <rect x="338" y="322" width="310" height="54" rx="10"/><text x="354" y="344" class="t">5 · Write</text><text x="354" y="364" class="s">Haiku 5.5 · template picks · store language</text>
+    <rect x="338" y="390" width="310" height="54" rx="10"/><text x="354" y="412" class="t">6 · Visuals</text><text x="354" y="432" class="s">free thumbnails · generated only for A, $1k cap</text>
+    <rect x="338" y="458" width="310" height="54" rx="10"/><text x="354" y="480" class="t">7 · Checks</text><text x="354" y="500" class="s">copy lint + fact-check · image QA (Gemini)</text>
+    <rect x="338" y="526" width="310" height="54" rx="10"/><text x="354" y="548" class="t">8 · Schedule</text><text x="354" y="568" class="s">Mon/Thu · 2 a week · 1 follow-up · caps</text>
+    <rect x="338" y="594" width="310" height="54" rx="10"/><text x="354" y="616" class="t">9 · Send (after go)</text><text x="354" y="636" class="s">1:1 via PushOwl Brevo · from Farooq</text>
+    <rect x="338" y="662" width="310" height="54" rx="10"/><text x="354" y="684" class="t">10 · Learn</text><text x="354" y="704" class="s">opens, clicks, replies, upgrades → re-stage</text>
+  </g>
+  <g class="ln">
+    <path d="M493 104v14M493 172v14M493 240v14M493 308v14M493 376v14M493 444v14M493 512v14M493 580v14M493 648v14" marker-end="url(#ah)"/>
+  </g>
+
+  <g class="ln">
+    <path d="M266 81h72" marker-end="url(#ah)"/>
+    <path d="M266 159c40 0 40-82 72-80" marker-end="url(#ah)"/>
+    <path d="M266 237c40 0 40-90 72-92" marker-end="url(#ah)"/>
+    <path d="M266 315c40 0 40-34 72-34" marker-end="url(#ah)"/>
+    <path d="M266 393c40 0 40-44 72-44" marker-end="url(#ah)"/>
+    <path d="M266 471c40 0 40-122 72-122" marker-end="url(#ah)"/>
+  </g>
+
+  <g class="out">
+    <rect x="700" y="560" width="244" height="62" rx="10"/><text x="714" y="584" class="t">Their inbox</text><text x="714" y="604" class="s">plain note from Farooq, 1 image</text>
+    <rect x="700" y="470" width="244" height="62" rx="10"/><text x="714" y="494" class="t">Ad Studio deep links</text><text x="714" y="514" class="s">router logs click, opens asset loaded</text>
+    <rect x="700" y="380" width="244" height="62" rx="10"/><text x="714" y="404" class="t">Replies in Gmail</text><text x="714" y="424" class="s">label "Ad Studio", off the inbox · agent answers</text>
+    <rect x="700" y="290" width="244" height="62" rx="10"/><text x="714" y="314" class="t">Calendly</text><text x="714" y="334" class="s">"Brevo Ads" 30 min call</text>
+    <rect x="700" y="200" width="244" height="62" rx="10"/><text x="714" y="224" class="t">Dashboard</text><text x="714" y="244" class="s">hourly KPIs, spend, holdout lift</text>
+  </g>
+  <g class="ln">
+    <path d="M648 621c30 0 30-30 52-30" marker-end="url(#ah)"/>
+    <path d="M944 591c12 0 12-90 0-90" marker-end="url(#ah)"/>
+    <path d="M944 591c12 0 12-180 0-180" marker-end="url(#ah)"/>
+    <path d="M944 501c12 0 12-180 0-180" marker-end="url(#ah)"/>
+  </g>
+  <g class="fb">
+    <path d="M700 501c-26 0-26 188-52 188" marker-end="url(#ah)"/>
+    <path d="M700 411c-30 0-30 270-52 278" marker-end="url(#ah)"/>
+    <path d="M700 321c-34 0-34 360-52 368" marker-end="url(#ah)"/>
+    <path d="M700 231c-38 0-38 450-52 458" marker-end="url(#ah)"/>
+  </g>
+  <text x="700" y="660" class="s">dashed: events flow back into stages</text>
+</svg>
+</div>
+
+<h2 id="lists">Who we email: backlog and daily</h2>
+<h3>The initial list (backlog), as of 21 Nov</h3>
+<table>
+<tr><th>Group</th><th>Contacts</th><th>Store to check</th><th>Ads checked</th><th>Active last 90 days</th></tr>
+<tr><td>BOFU · used all 3 free generations, unpaid</td><td>6,533</td><td>1,974</td><td>525 (120 run ads)</td><td>679</td></tr>
+<tr><td>MOFU 2.1 · made 1 or 2 ads</td><td>14,187</td><td>2,000</td><td>418 (115 run ads)</td><td>605</td></tr>
+<tr><td>MOFU 2.3 · imported products, 0 ads</td><td>2,649</td><td>1,852</td><td>1,511 (486 run ads)</td><td>1,849</td></tr>
+<tr><td>TOFU · PushOwl/Brevo user, no Ad Studio activity</td><td>99,872</td><td>42,232</td><td>0</td><td>1,946 in Ad Studio · ~7.4k seen in PushOwl (Intercom)</td></tr>
+<tr><td>Already paying (excluded)</td><td>956</td><td colspan="3">exit</td></tr>
+<tr><td>Brevo ecom store connections (Omni), not yet loaded</td><td>100k+</td><td>all have a shop URL</td><td>0</td><td>~10k connected in the last 90 days</td></tr>
+</table>
+<p class="meta">Excluded before anything else: 7,131 blocklisted contacts, staff domains (pushowl.com, brevo.com, shopify.com), and email domains shared by 40+ sign-ups (fake or relay domains). The old Tier A run on disk has 627 qualified stores. They are re-checked fresh rather than reused.</p>
+
+<h3>Order we start in</h3>
+<ol>
+  <li><b>Active Ad Studio users first</b> (about 2.5k in MOFU/BOFU who used Ad Studio in the last 90 days). Closest to paying.</li>
+  <li><b>Daily new sign-ups and installs</b> from day one of sending.</li>
+  <li><b>Dormant Ad Studio users</b> (about 19k), in daily batches.</li>
+  <li><b>TOFU backlog</b>: only people active in the last 90 days (Ad Studio activity, PushOwl last seen, or email engagement), in daily batches over about 2 weeks. Never the whole list at once.</li>
+  <li><b>Brevo ecom stores from Omni</b>, newest connections first.</li>
+</ol>
+<div class="callout warn">Batches start small and grow only while bounces stay under 2% and complaints under 0.1%. Either limit crossed pauses sending automatically.</div>
+
+<h3>Daily (new sign-ups and installs)</h3>
+<p>At 03:00 UTC the Worker pulls contacts changed since the last run from the PushOwl Brevo account and yesterday's new store connections from Omni. It finds the store domain, runs the Meta ads check within the hour, assigns stage and cohort, and the person enters the funnel at the next Mon/Thu slot.</p>
+
+<h2 id="ads">Meta ads qualification</h2>
+<div class="grid g2">
+  <div class="card"><h3 style="margin-top:0">How it works</h3>
+  <ul>
+    <li>Adyntel (through treg) takes a store domain, finds the store's own Facebook page and returns its live ads.</li>
+    <li>A store with no ads comes back as a free "complete, 0 ads" (HTTP 204). A hit costs about $0.011.</li>
+    <li>Runs on the queue in parallel, about 100 stores a minute. The old lookup is the fallback.</li>
+    <li>We keep the 10 longest-running ads per store: copy, image, start date, format, landing page.</li>
+  </ul></div>
+  <div class="card"><h3 style="margin-top:0">Done so far</h3>
+  <ul>
+    <li>2,454 active Ad Studio users checked: <b>721 run Meta ads</b>, 1,733 do not.</li>
+    <li>About 1 in 5 stores with a domain runs ads.</li>
+    <li>The TOFU backlog and the Omni stores have <b>not been checked yet</b>.</li>
+  </ul></div>
+</div>
+<h3>Plan for the backlog</h3>
+<table>
+<tr><th>Batch</th><th>Stores</th><th>Time</th><th>Cost (est.)</th></tr>
+<tr><td>1 · dormant MOFU/BOFU with a domain</td><td>3,372</td><td>~35 min</td><td>~$7</td></tr>
+<tr><td>2 · TOFU with a real store domain (Brevo or Ad Studio)</td><td>~10,000</td><td>~2 h</td><td>~$22</td></tr>
+<tr><td>3 · Brevo ecom stores from Omni, last 12 months first</td><td>~33,000</td><td>~6 h</td><td>~$70</td></tr>
+<tr><td>4 · TOFU with a business email domain only</td><td>~32,000</td><td>~6 h</td><td>~$70</td></tr>
+</table>
+<p class="meta">Re-checks: ad runners every 14 days (ads stop), non-runners every 30 days (they start). Stores with no domain stay cohort U and get template emails.</p>
+
+<h2 id="stages">Stages and emails</h2>
+<table>
+<tr><th>Stage</th><th>A · runs Meta ads</th><th>B · no ads / U · no store</th></tr>
+<tr><td>TOFU · signed up, no Ad Studio use (up to 4, then stop)</td><td>ad read with their own ad · Ad Radar winner to clone · video script · templates</td><td>templates · winner to clone · video script · first ad in 10 minutes</td></tr>
+<tr><td>MOFU 2.1 · made 1 or 2 ads</td><td>2 new versions of their longest-running ad (generated) · next templates</td><td>next templates · video script</td></tr>
+<tr><td>MOFU 2.3 · imported products, 0 ads</td><td>a product ad (generated) · product templates</td><td>product templates · video script</td></tr>
+<tr><td>BOFU 3.1 · used all 3 free, unpaid</td><td>free video clone of an Ad Radar winner · call · plan pick</td><td>out of free + 3 templates · call · plan pick</td></tr>
+</table>
+<p>Every high-value email gets one follow-up three days later, in the same thread, showing the other pick. The plan email recommends a plan from real usage, worked out in code: Studio Mini up to 15 ads made, Studio up to 60, Studio Max above. No discounts.</p>
+
+<h2 id="cadence">Cadence and schedule</h2>
+<div class="grid g3">
+  <div class="stat"><b>Mon + Thu</b><span>send days, local morning by region</span></div>
+  <div class="stat"><b>2 a week</b><span>max per person, across every program in the account</span></div>
+  <div class="stat"><b>1</b><span>follow-up per value email, then move on</span></div>
+</div>
+<ul>
+  <li>The furthest stage wins. Someone who generates moves from TOFU to MOFU on the next sync.</li>
+  <li>TOFU stops after 4 emails with no action. They leave the funnel when they upgrade or unsubscribe.</li>
+  <li>10% of each stage is held out to measure the real lift.</li>
+  <li>The "Night Owls", "CaaS" and "PushOwl Daily Ads" lists in the same account count toward the weekly cap.</li>
+</ul>
+
+<h2 id="content">How the content is made</h2>
+<h3>Voice</h3>
+<p>A warm, short note (70 to 130 words) from someone who took time on their store. Five beats: a warm opener ("I was going through your ads last night…"), one thing noticed and framed as an easy win, what was made or picked, why it saves time and money compared with starting from scratch or paying an agency, and one link. Subjects are curious and personal ("made 2 ads for your bratwurst 🥩"). The preview text reads like the next line of a friend's message. Signed "Farooq, Growth at Brevo". Written natively in the store's language.</p>
+<h3>Where things come from</h3>
+<table>
+<tr><th>Asset</th><th>Source</th><th>Cost</th></tr>
+<tr><td>Templates</td><td>291 static + 32 video templates from Ad Studio. Catalog from PostHog usage, thumbnails from Ad Studio's CDN, tagged by Gemini Flash (angle, best-for, needs). Haiku picks 1 to 3 per store.</td><td>none per email</td></tr>
+<tr><td>Ad Radar winners</td><td>Ad Studio API, one pull per category per day, reused for every store in it</td><td>none per email</td></tr>
+<tr><td>Their own ad</td><td>Meta Ad Library (from the qualification step), copied to our storage</td><td>none</td></tr>
+<tr><td>Video scripts</td><td>Haiku, from their store and ad lines, loaded into the video agent link</td><td>text only</td></tr>
+<tr><td>Remade ads, product ads</td><td>Generated from their live ad and product photo (Ad Studio API, Replicate fallback), checked by Gemini QA</td><td>~$0.35 a person, $1k cap</td></tr>
+<tr><td>Video clones</td><td>Ad Radar "Clone for my product" with their product, via a cloud browser or the captured API</td><td>~$1.50 to $2, $1k cap</td></tr>
+</table>
+<h3>Checks before anything can send</h3>
+<ul>
+  <li>Copy lint: banned phrases, length, punctuation, emoji count, link text, no reply asks, no abrupt openers.</li>
+  <li>Fact-check: a second model compares every number, name and claim with the store's data and what each link does.</li>
+  <li>Image QA on generated ads. Anything that fails three rewrites is held back.</li>
+</ul>
+
+<h2 id="send">Sending, replies, safety</h2>
+<ul>
+  <li>Sent one to one through the PushOwl Brevo account (transactional), from sender "Farooq from Ad Studio" &lt;sheik.farooq@pushowl.com&gt;, with a List-Unsubscribe header and a one-click stop link.</li>
+  <li>Replies go to sheik.farooq+ads@pushowl.com. A Gmail filter labels them "Ad Studio" and keeps them out of the inbox.</li>
+  <li>The reply agent is a small Google Apps Script under Farooq's account, running in Google's cloud. It answers in the same thread using a product knowledge base, offers the Calendly call when there is buying intent or setup questions, and stops if they go quiet after our reply. Billing, refunds and complaints go to Farooq.</li>
+  <li>Before every send: blocklist check, unsubscribe and bounce exclusion, weekly cap. Sending auto-pauses on bounces over 2% or complaints over 0.1%.</li>
+</ul>
+
+<h2 id="models">Models and spend</h2>
+<table>
+<tr><th>Job</th><th>Model</th><th>Cap</th></tr>
+<tr><td>Writing, fact-check, picks</td><td>Claude Haiku 5.5 (OpenRouter). Fallback Haiku 4.5 on Replicate.</td><td>none</td></tr>
+<tr><td>Anything with images (tagging, QA)</td><td>Gemini Flash (3.8 on OpenRouter, 3.5 on Replicate)</td><td>none</td></tr>
+<tr><td>Image generation</td><td>Ad Studio API, then Replicate gpt-image-2</td><td rowspan="2">$1,000 a month together, about $33 a day, enforced in code</td></tr>
+<tr><td>Video clones</td><td>Ad Studio Ad Radar clone</td></tr>
+<tr><td>Meta ads lookups</td><td>Adyntel through treg</td><td>misses free, hits ~$0.011</td></tr>
+</table>
+
+<h2 id="dash">Dashboard (hourly)</h2>
+<ul>
+  <li>Funnel: contacts per stage and cohort, movement between stages.</li>
+  <li>Email: sent, delivered, opens, clicks, replies, bounces, complaints, unsubscribes.</li>
+  <li>Usage from PostHog: deep-link visits, generations, downloads, clones, UGC videos.</li>
+  <li>Money: upgrades, plan mix, MRR, cost per upgrade, lift against the holdout. Calls booked from Calendly.</li>
+</ul>
+
+<h2 id="status">What is built, what is next</h2>
+<div class="grid g2">
+  <div class="card"><h3 style="margin-top:0">Built and running in the cloud</h3>
+  <ul>
+    <li>Contact sync (131k), cleanup, stages, holdout</li>
+    <li>Meta ads check on active Ad Studio users (721 ad runners)</li>
+    <li>Template catalog with tags, Ad Radar winners</li>
+    <li>Writer, fact-check, lint, free visuals, store language</li>
+    <li>Generated remade ads with QA and the $1k cap</li>
+    <li>Sender added in the PushOwl Brevo account</li>
+  </ul></div>
+  <div class="card"><h3 style="margin-top:0">Next</h3>
+  <ul>
+    <li>Backlog Meta ads check (batches 1 to 4)</li>
+    <li>Omni Brevo ecom intake into the funnel</li>
+    <li>Scheduler and sender, follow-ups, weekly cap</li>
+    <li>Reply agent (needs one "Authorize" click) and Gmail label</li>
+    <li>Hourly dashboard, Calendly webhook, Intercom in-app messages</li>
+    <li>Ad Radar video clones</li>
+  </ul></div>
+</div>
+<p class="meta">Code: Cloudflare Worker <code>adstudio-drops</code> (D1 database, R2 storage, KV, queues). Funnel modules: <code>funnel.js</code>, <code>funnel_emails.js</code>. Spec: <code>funnel/SPEC.md</code>.</p>
+</div>
+
+</body>
+</html>
