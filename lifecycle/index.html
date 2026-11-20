@@ -284,7 +284,7 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 <tr><td>Their own ad</td><td>Meta Ad Library (from the qualification step), copied to our storage</td><td>none</td></tr>
 <tr><td>Video scripts</td><td>Haiku, from their store and ad lines, loaded into the video agent link</td><td>text only</td></tr>
 <tr><td>Remade ads, product ads</td><td>Generated from their live ad and product photo (Ad Studio API, Replicate fallback), checked by Gemini QA</td><td>~$0.35 a person, $1k cap</td></tr>
-<tr><td>Video clones</td><td>Done for you: Ad Radar "Clone for my product" with their product, run in Farooq's Ad Studio account by a cloud browser. BOFU ad runners first, most recently active first.</td><td>Ad Studio credits, separate budget up to $1k (about $860 for the current backlog, then ~$50 a month)</td></tr>
+<tr><td>Video clones</td><td>Done for you: Ad Studio's own clone agent ("Clone for my product") with their product page and the best-fitting Ad Radar video winner. It runs from Farooq's signed-in Chrome, because the agent only works in a browser session; the Worker plans each job, keeps up to 8 running and stores the finished 15 second video. BOFU ad runners, most recently active first.</td><td>About 50 Ad Studio credits a video (separate budget, up to $1k)</td></tr>
 </table>
 <h3>Checks before anything can send</h3>
 <ul>
@@ -339,7 +339,7 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
   <div class="card"><h3 style="margin-top:0">Next</h3>
   <ul>
     <li>Ads check batches 3 and 4 on Farooq's go</li>
-    <li>Done-for-you Ad Radar video clones for BOFU ad runners</li>
+    <li>Video clones: running for 206 BOFU ad runners (49 have no usable product page)</li>
     <li>Calendly webhook, Intercom in-app messages</li>
     <li>First real send, only on Farooq's go</li>
   </ul></div>
