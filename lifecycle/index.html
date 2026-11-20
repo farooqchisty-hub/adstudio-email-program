@@ -237,7 +237,7 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
   <ul>
     <li>2,454 active Ad Studio users checked: <b>721 run Meta ads</b>, 1,733 do not.</li>
     <li>About 1 in 5 stores with a domain runs ads.</li>
-    <li>21 Nov: batch 1 (3,372 dormant Ad Studio users) and batch 2 (9,986 TOFU stores with a real domain) are running. The Omni stores come next.</li>
+    <li>21 Nov: batches 1 and 2 nearly done. <b>11,947 stores checked, 2,598 run Meta ads</b> (226 BOFU, 601 MOFU, 1,770 TOFU). About 3,900 left in the queue. The Omni stores (batch 3) and business-email domains (batch 4) wait for Farooq's go.</li>
   </ul></div>
 </div>
 <h3>Plan for the backlog</h3>
@@ -284,7 +284,7 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 <tr><td>Their own ad</td><td>Meta Ad Library (from the qualification step), copied to our storage</td><td>none</td></tr>
 <tr><td>Video scripts</td><td>Haiku, from their store and ad lines, loaded into the video agent link</td><td>text only</td></tr>
 <tr><td>Remade ads, product ads</td><td>Generated from their live ad and product photo (Ad Studio API, Replicate fallback), checked by Gemini QA</td><td>~$0.35 a person, $1k cap</td></tr>
-<tr><td>Video clones</td><td>Ad Radar "Clone for my product" with their product, via a cloud browser or the captured API</td><td>~$1.50 to $2, $1k cap</td></tr>
+<tr><td>Video clones</td><td>Done for you: Ad Radar "Clone for my product" with their product, run in Farooq's Ad Studio account by a cloud browser. BOFU ad runners first, most recently active first.</td><td>Ad Studio credits, separate budget up to $1k (about $860 for the current backlog, then ~$50 a month)</td></tr>
 </table>
 <h3>Checks before anything can send</h3>
 <ul>
@@ -297,7 +297,8 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 <ul>
   <li>Sent one to one through the PushOwl Brevo account (transactional), from sender "Farooq from Ad Studio" &lt;sheik.farooq@pushowl.com&gt;, with a List-Unsubscribe header and a one-click stop link.</li>
   <li>Replies go to sheik.farooq+ads@pushowl.com. A Gmail filter labels them "Ad Studio" and keeps them out of the inbox.</li>
-  <li>The reply agent is a small Google Apps Script under Farooq's account, running in Google's cloud. It answers in the same thread using a product knowledge base, offers the Calendly call when there is buying intent or setup questions, and stops if they go quiet after our reply. Billing, refunds and complaints go to Farooq.</li>
+  <li>The reply agent is a Google Apps Script ("Ad Studio replies") under Farooq's account, running in Google's cloud every 5 minutes. It answers in the same thread using a product knowledge base, offers the Calendly call when there is buying intent or setup questions, and stops if they go quiet after our reply. Billing, refunds and complaints go to Farooq under the label "Ad Studio/needs-farooq".</li>
+  <li>The script holds no keys. Each call to the Worker carries a Google-signed identity token for Farooq's account, which the Worker verifies. It starts in draft mode: answers are saved as Gmail drafts (label "Ad Studio/draft-reply") until MODE is set to send.</li>
   <li>Before every send: blocklist check, unsubscribe and bounce exclusion, weekly cap. Sending auto-pauses on bounces over 2% or complaints over 0.1%.</li>
 </ul>
 
@@ -306,12 +307,13 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 <tr><th>Job</th><th>Model</th><th>Cap</th></tr>
 <tr><td>Writing, fact-check, picks</td><td>Claude Haiku 5.5 (OpenRouter). Fallback Haiku 4.5 on Replicate.</td><td>none</td></tr>
 <tr><td>Anything with images (tagging, QA)</td><td>Gemini Flash (3.8 on OpenRouter, 3.5 on Replicate)</td><td>none</td></tr>
-<tr><td>Image generation</td><td>Ad Studio API, then Replicate gpt-image-2</td><td rowspan="2">$1,000 a month together, about $33 a day, enforced in code</td></tr>
-<tr><td>Video clones</td><td>Ad Studio Ad Radar clone</td></tr>
+<tr><td>Image generation</td><td>Ad Studio API, then Replicate gpt-image-2</td><td>$1,000 a month, about $33 a day, enforced in code</td></tr>
+<tr><td>Video clones</td><td>Ad Studio Ad Radar clone, Farooq's account</td><td>Ad Studio credits, up to $1,000 more</td></tr>
 <tr><td>Meta ads lookups</td><td>Adyntel through treg</td><td>misses free, hits ~$0.011</td></tr>
 </table>
 
 <h2 id="dash">Dashboard (hourly)</h2>
+<p>Live at <code>adstudio-drops.winningstatics.workers.dev/funnel</code> (asks once for the admin token, kept in that browser). A snapshot is taken every hour.</p>
 <ul>
   <li>Funnel: contacts per stage and cohort, movement between stages.</li>
   <li>Email: sent, delivered, opens, clicks, replies, bounces, complaints, unsubscribes.</li>
@@ -324,23 +326,25 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
   <div class="card"><h3 style="margin-top:0">Built and running in the cloud</h3>
   <ul>
     <li>Contact sync (131k), cleanup, stages, holdout</li>
-    <li>Meta ads check on active Ad Studio users (721 ad runners)</li>
+    <li>Meta ads check: 11,947 stores checked, 2,598 ad runners</li>
     <li>Template catalog with tags, Ad Radar winners</li>
     <li>Writer, fact-check, lint, free visuals, store language</li>
     <li>Generated remade ads with QA and the $1k cap</li>
-    <li>Sender added in the PushOwl Brevo account</li>
+    <li>Scheduler and sender: Mon + Thu slots, follow-ups, weekly cap, one-click unsubscribe, bounce and complaint auto-pause (draft mode)</li>
+    <li>Reply agent in Gmail with labels and filter (draft mode)</li>
+    <li>Hourly dashboard</li>
+    <li>Daily Omni intake of new Brevo ecom stores</li>
+    <li>Test slot for 23 Nov: 20 BOFU drafts written, nothing sent</li>
   </ul></div>
   <div class="card"><h3 style="margin-top:0">Next</h3>
   <ul>
-    <li>Backlog Meta ads check (batches 1 to 4)</li>
-    <li>Omni Brevo ecom intake into the funnel</li>
-    <li>Scheduler and sender, follow-ups, weekly cap</li>
-    <li>Reply agent (needs one "Authorize" click) and Gmail label</li>
-    <li>Hourly dashboard, Calendly webhook, Intercom in-app messages</li>
-    <li>Ad Radar video clones</li>
+    <li>Finish batches 1 and 2; batches 3 and 4 on Farooq's go</li>
+    <li>Done-for-you Ad Radar video clones for BOFU ad runners</li>
+    <li>Calendly webhook, Intercom in-app messages</li>
+    <li>First real send, only on Farooq's go</li>
   </ul></div>
 </div>
-<p class="meta">Code: Cloudflare Worker <code>adstudio-drops</code> (D1 database, R2 storage, KV, queues). Funnel modules: <code>funnel.js</code>, <code>funnel_emails.js</code>. Spec: <code>funnel/SPEC.md</code>.</p>
+<p class="meta">Code: Cloudflare Worker <code>adstudio-drops</code> (D1 database, R2 storage, KV, queues). Funnel modules: <code>funnel.js</code>, <code>funnel_emails.js</code>, <code>funnel_send.js</code>, <code>funnel_replies.js</code>, <code>funnel_sources.js</code>, <code>funnel_dashboard.js</code>. Gmail side: <code>funnel/appsscript/</code>. Spec: <code>funnel/SPEC.md</code>.</p>
 </div>
 
 </body>
