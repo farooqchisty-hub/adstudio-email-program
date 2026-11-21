@@ -132,9 +132,10 @@ video{max-width:100%;border-radius:12px;border:1px solid var(--line);background:
   <div class="card rule"><b>One follow-up</b><span>3 to 10 days after each high-value email, same thread, only if they did not click or reply.</span></div>
   <div class="card rule"><b>TOFU stops at 4</b><span>4 main emails (plus their follow-ups) with no click, reply or ad made, then nothing more.</span></div>
   <div class="card rule"><b>A reply pauses them</b><span>7 days for the reply agent to talk; the call email is dropped since the agent offers the call.</span></div>
-  <div class="card rule"><b>Exits</b><span>Upgrade, unsubscribe, "stop" in a reply, a billing or complaint reply (goes to Farooq), bounce or blocklist.</span></div>
+  <div class="card rule"><b>Exits</b><span>Upgrade, unsubscribe, "stop" or a complaint in a reply, a privacy request, bounce or blocklist.</span></div>
   <div class="card rule"><b>Checks before send</b><span>Copy lint and a fact-check on every draft; image QA on generated visuals; anything failing is skipped, the next email goes instead.</span></div>
-  <div class="card rule"><b>Safety</b><span>Brevo blocklist check per send, one-click unsubscribe, auto-pause at 2% bounces or 0.1% complaints, daily cap.</span></div>
+  <div class="card rule"><b>Two senders</b><span>PushOwl contacts get sheik.farooq@pushowl.com; Ad Studio users and Brevo ecom stores get campaigns@m.brevo.com. Replies always come back to Farooq's PushOwl inbox.</span></div>
+  <div class="card rule"><b>Safety</b><span>Brevo blocklist check per send, one-click unsubscribe, auto-pause at 3% bounces or 0.1% complaints.</span></div>
   <div class="card rule"><b>Priority</b><span>Follow-ups first, then BOFU, MOFU, TOFU; ad runners first; most recent activity first.</span></div>
 </div>
 
@@ -617,7 +618,7 @@ video{max-width:100%;border-radius:12px;border:1px solid var(--line);background:
 </section>
 
 <h2 id="replies"><em>Replies</em></h2>
-<p>Replies go to sheik.farooq+ads@pushowl.com, skip the inbox under the "Ad Studio" label, and the reply agent handles them within 5 minutes. Three real dry-run examples:</p>
+<p>Replies to both senders go to sheik.farooq+ads@pushowl.com, skip the inbox under the "Ad Studio" label, and the reply agent answers every one itself within 5 minutes. Nothing is handed to Farooq. Real dry-run examples:</p>
 <div class="grid g3">
 <div class="card"><h4>A question with buying intent <span class="pill ">reply</span></h4>
 <p class="small"><b>They wrote:</b> “Hi Farooq, thanks for this. Does Ad Studio make video ads too, and can I use my own product photos? We run about 15 ads a month, which plan would make sense?”</p><p class="small"><b>What happens:</b> Answers from the product knowledge base, recommends a plan from what they said, offers the 30 minute call. Saved as a Gmail draft until reply mode is switched to send.</p>
@@ -636,9 +637,18 @@ Growth at Brevo</pre></div>
 <div class="card"><h4>&quot;Not interested, take me off your list&quot; <span class="pill red">stop</span></h4>
 <p class="small"><b>They wrote:</b> “Not interested, please take me off your list.”</p><p class="small"><b>What happens:</b> No reply. Unsubscribed right away, thread labelled Ad Studio/stopped.</p>
 </div>
-<div class="card"><h4>Billing complaint <span class="pill amber">flag</span></h4>
-<p class="small"><b>They wrote:</b> “I was charged twice this month for Ad Studio and want a refund for one of them.”</p><p class="small"><b>What happens:</b> No reply. Labelled Ad Studio/needs-farooq and left unread for Farooq.</p>
-</div>
+<div class="card"><h4>Billing question <span class="pill ">reply</span></h4>
+<p class="small"><b>They wrote:</b> “I was charged twice this month for Ad Studio, what&#x27;s going on?”</p><p class="small"><b>What happens:</b> Answered by the agent: it cannot see payments, so it points them to the support chat inside Ad Studio, which can. No promises of refunds. Nothing goes to Farooq.</p>
+<pre class="reply">Hey Kim,
+
+I can&#x27;t see payments on my end, so I can&#x27;t tell you why the second charge happened. The chat inside Ad Studio, bottom right, can see your account and sort it out.
+
+If you&#x27;re on a monthly plan, you can cancel anytime. Yearly plans can be cancelled to stop the renewal.
+
+Shout if anything&#x27;s unclear.
+
+Farooq
+Growth at Brevo</pre></div>
 </div>
 
 <h2 id="video">Video <em>clones</em></h2>
@@ -666,8 +676,8 @@ Growth at Brevo</pre></div>
 <li class="ok">Meta ads check on 20k stores so far (4,235 ad runners); the rest of the backlog is running in the cloud</li>
 <li class="ok">All 13 email types plus follow-ups written in the store's language, each passing a copy lint and a fact-check (this page)</li>
 <li class="ok">Scheduler: Mon and Thu by region, 2 a week, follow-ups, TOFU stop, reply pause, exits (22 of 22 tests, plus this simulation)</li>
-<li class="ok">Sending: PushOwl Brevo account, sender "Farooq from Ad Studio" active, pushowl.com authenticated, one-click unsubscribe, bounce and complaint auto-pause</li>
-<li class="ok">Reply agent live in Gmail (draft mode), answers, stops and flags correctly</li>
+<li class="ok">Sending from two brands: pushowl.com for PushOwl contacts, m.brevo.com for Ad Studio users and Brevo ecom stores; both authenticated and seed-tested; one-click unsubscribe; auto-pause at 3% bounces or 0.1% complaints</li>
+<li class="ok">Reply agent live in Gmail, sending its own replies; every case answered, nothing handed to Farooq (billing, refunds, complaints, privacy, partnerships tested)</li>
 <li class="ok">Video clones: cloud path live, Chrome fallback live, emails swap in automatically</li>
 <li class="ok">Hourly KPI dashboard with holdout comparison</li>
 <li class="ok">Seed test (21 Nov): all 14 seeds delivered to the inbox, DKIM, SPF and DMARC pass, follow-up threads under its email, links open the right Ad Studio page, unsubscribe and one-click unsubscribe work</li>
@@ -676,7 +686,6 @@ Growth at Brevo</pre></div>
 </ul></div>
 <div class="card"><h4>Before or at the first send <span class="pill amber">open</span></h4><ul class="check">
 <li class="todo">The go: send mode is still draft, nothing goes out until Farooq says go</li>
-<li class="todo">Reply agent: keep drafts for the first week, then switch to auto-send</li>
 <li class="todo">Volume ramp: daily cap is 20; suggested 50 a day in week 1, 150 in week 2, then 300, watching bounces and complaints</li>
 <li class="todo">TOFU backlog: 28k Brevo ecom stores are still waiting for their Meta ads check (about 7 hours)</li>
 </ul></div></div>
